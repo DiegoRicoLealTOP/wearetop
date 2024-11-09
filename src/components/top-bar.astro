@@ -1,0 +1,44 @@
+---
+import Logo from "@/icons/logos/wearetop.svg";
+import Burger from "@/components/burger.astro";
+import NavDesktop from "@/components/nav-desktop.astro";
+import NavMobile from "@/components/nav-mobile.astro";
+---
+
+<header class="bg-black text-white">
+  <div class="container flex min-h-16 items-center justify-between">
+    <Burger client:media="(max-width: 768px)" />
+
+    <a href="/" class="order-last w-fit md:order-none">
+      <img
+        src={Logo.src}
+        alt="We Are Top"
+        class="aspect-video h-10 w-auto md:h-16"
+      />
+    </a>
+
+    <NavDesktop />
+    <NavMobile client:load />
+  </div>
+</header>
+
+<style is:global>
+  /* Solo para asegurar que el hover funcione en movil */
+  @media (width: <= 768px) {
+    nav {
+      @apply flex-col;
+    }
+
+    nav div[class*="group"] > div {
+      @apply relative left-4 top-0 border-0 shadow-none;
+    }
+  }
+
+  .after-star:last-of-type::after {
+    content: "★";
+    font-size: 6px;
+    color: white;
+    padding-left: 2px;
+    margin-top: -9px;
+  }
+</style>

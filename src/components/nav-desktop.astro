@@ -1,0 +1,89 @@
+---
+import { Icon } from "astro-icon/components";
+import { ROUTES } from "@/lib/constants";
+import { formatText, hasSubMenus } from "@/utils/nav";
+---
+
+<nav class="relative hidden flex-wrap text-[10px] md:flex">
+  {
+    Object.entries(ROUTES.NAV_LINKS).map(([key, value]) =>
+      hasSubMenus(value) ? (
+        // With submenus
+        <div class="group relative">
+          <span class="flex h-full cursor-pointer items-center px-4 transition-colors group-hover:bg-cpurple-200">
+            <Icon
+              name={`navbar/${formatText(key).toLowerCase()}`}
+              class="mr-2 size-2.5 rotate-[-40deg]"
+            />
+            {formatText(key)}
+          </span>
+          <div class="absolute left-0 top-full z-50 hidden min-w-[200px] bg-black shadow-lg group-hover:block">
+            {Object.entries(value).map(([subKey, subValue]) =>
+              hasSubMenus(subValue) ? (
+                <div class="group/sub relative border-t border-cmutted-foreground/30">
+                  <span class="flex cursor-pointer justify-between px-4 py-2 font-semibold transition-colors hover:text-czyan group-hover/sub:text-czyan">
+                    {formatText(subKey)}
+                    <Icon
+                      name="navbar/chevron"
+                      class="size-2.5 text-cmutted-foreground"
+                    />
+                  </span>
+                  <div class="absolute left-full top-0 hidden min-w-[200px] bg-black shadow-lg group-hover/sub:block">
+                    {Object.entries(subValue).map(
+                      ([subSubKey, subSubValue]) => (
+                        <a
+                          href={subSubValue as string}
+                          class="block border-t border-cmutted-foreground/30 px-4 py-2 font-semibold text-cmutted-foreground transition-colors hover:text-white"
+                        >
+                          {formatText(subSubKey)}
+                        </a>
+                      ),
+                    )}
+                  </div>
+                </div>
+              ) : (
+                // Without submenus
+                <a
+                  href={subValue as string}
+                  class="block px-4 py-2 font-semibold hover:text-czyan"
+                >
+                  {formatText(subKey)}
+                </a>
+              ),
+            )}
+          </div>
+        </div>
+      ) : (
+        // Normal items
+        <a
+          href={value as string}
+          class="after-star flex items-center px-4 py-10 transition-colors last-of-type:relative last-of-type:bg-cpurple-100 hover:bg-cpurple-200 [&:first-of-type>svg]:skew-x-[-18deg]"
+        >
+          <Icon
+            name={`navbar/${formatText(key).toLowerCase()}`}
+            class="mr-2 size-2"
+          />
+          {formatText(key)}
+        </a>
+      ),
+    )
+  }
+</nav>
+
+<nav class="hidden gap-x-1 md:flex">
+  {
+    Object.entries(ROUTES.SOCIALS).map(([key, value]) => (
+      <a
+        href={value}
+        aria-label={formatText(key)}
+        class="transition-opacity hover:opacity-80"
+        target="_blank"
+      >
+        <Icon
+          name={`socials/${formatText(key).toLowerCase()}`}
+          class="size-6"
+        />
+      </a>
+    ))
+  }
+</nav>

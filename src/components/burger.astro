@@ -1,0 +1,85 @@
+<label class="hamburger md:hidden">
+  <input type="checkbox" class="check-hamburger" />
+  <svg viewBox="0 0 32 32">
+    <path
+      class="line line-top-bottom"
+      d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+    ></path>
+    <path class="line" d="M7 16 27 16"></path>
+  </svg>
+</label>
+
+<style is:global>
+  .hamburger {
+    cursor: pointer;
+  }
+
+  .check-hamburger {
+    display: none;
+  }
+
+  .hamburger svg {
+    height: 32px;
+    transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .line {
+    fill: none;
+    stroke: white;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.5;
+    transition:
+      stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+      stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .line-top-bottom {
+    stroke-dasharray: 12 63;
+  }
+
+  .check-hamburger:checked + svg {
+    transform: rotate(-45deg);
+  }
+
+  .check-hamburger:checked + svg .line-top-bottom {
+    stroke-dasharray: 20 300;
+    stroke-dashoffset: -32.42;
+  }
+
+  #nav-mobile {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  :has(.check-hamburger:checked) #nav-mobile {
+    animation: slide linear both;
+    visibility: visible;
+    @apply translate-x-0 opacity-100;
+  }
+
+  :has(.check-hamburger:checked) .line {
+    animation: colorActive 150ms both;
+  }
+
+  /* remove scroll when nav is open */
+  :has(.check-hamburger:checked) body,
+  :has(.check-lang:checked) body {
+    @apply overflow-hidden;
+  }
+
+  @keyframes colorActive {
+    to {
+      @apply stroke-cpurple-100;
+    }
+  }
+</style>
+
+<script lang="ts" is:inline>
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest("#nav-mobile") && !e.target.closest(".hamburger")) {
+      document.querySelector(".check-hamburger").checked = false;
+    }
+  });
+</script>
