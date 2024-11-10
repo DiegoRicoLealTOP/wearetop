@@ -7,7 +7,7 @@ import NavMobile from "@/components/nav-mobile.astro";
 
 <header class="bg-black text-white">
   <div class="container flex min-h-16 items-center justify-between">
-    <Burger client:media="(max-width: 768px)" />
+    <Burger />
 
     <a href="/" class="order-last w-fit md:order-none">
       <img
@@ -18,7 +18,7 @@ import NavMobile from "@/components/nav-mobile.astro";
     </a>
 
     <NavDesktop />
-    <NavMobile client:load />
+    <NavMobile />
   </div>
 </header>
 

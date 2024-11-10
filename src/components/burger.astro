@@ -76,10 +76,21 @@
   }
 </style>
 
-<script lang="ts" is:inline>
+<script>
   document.addEventListener("click", (e) => {
-    if (!e.target.closest("#nav-mobile") && !e.target.closest(".hamburger")) {
-      document.querySelector(".check-hamburger").checked = false;
+    // Type casting del target a HTMLElement y verificación de nulidad
+    const target = e.target as HTMLElement;
+    if (!target) return;
+
+    // Verificar si no está dentro del nav o hamburger
+    if (!target.closest("#nav-mobile") && !target.closest(".hamburger")) {
+      // Type casting del checkbox y verificación de nulidad
+      const checkbox = document.querySelector(
+        ".check-hamburger",
+      ) as HTMLInputElement | null;
+      if (checkbox) {
+        checkbox.checked = false;
+      }
     }
   });
 </script>
