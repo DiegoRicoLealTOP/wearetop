@@ -49,6 +49,7 @@ import { formatText, hasSubMenus } from "@/utils/nav";
                           <a
                             href={subSubValue as string}
                             class="block border-t border-cmutted-foreground/30 px-4 py-3 font-semibold text-cmutted-foreground transition-colors hover:text-white"
+                            aria-label={formatText(subSubKey)}
                           >
                             {formatText(subSubKey)}
                           </a>
@@ -60,6 +61,7 @@ import { formatText, hasSubMenus } from "@/utils/nav";
                   <a
                     href={subValue as string}
                     class="block px-4 py-3 font-semibold hover:text-czyan"
+                    aria-label={formatText(subValue)}
                   >
                     {formatText(subKey)}
                   </a>
@@ -72,6 +74,7 @@ import { formatText, hasSubMenus } from "@/utils/nav";
           <a
             href={value as string}
             class="after-star flex items-center px-4 py-4 transition-colors last-of-type:relative last-of-type:bg-cpurple-100 hover:bg-cpurple-200 [&:first-of-type>svg]:skew-x-[-18deg]"
+            aria-label={formatText(value as string)}
           >
             <Icon
               name={`navbar/${formatText(key).toLowerCase()}`}
