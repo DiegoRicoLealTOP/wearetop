@@ -32,7 +32,7 @@ import { formatText, hasSubMenus } from "@/utils/nav";
                     {Object.entries(subValue).map(
                       ([subSubKey, subSubValue]) => (
                         <a
-                          href={subSubValue as string}
+                          href={(ROUTES.WEARETOP + subSubValue) as string}
                           class="block border-t border-cmutted-foreground/30 px-4 py-2 font-semibold text-cmutted-foreground transition-colors hover:text-white"
                         >
                           {formatText(subSubKey)}
@@ -44,7 +44,7 @@ import { formatText, hasSubMenus } from "@/utils/nav";
               ) : (
                 // Without submenus
                 <a
-                  href={subValue as string}
+                  href={(ROUTES.WEARETOP + subValue) as string}
                   class="block px-4 py-2 font-semibold hover:text-czyan"
                 >
                   {formatText(subKey)}
@@ -56,7 +56,7 @@ import { formatText, hasSubMenus } from "@/utils/nav";
       ) : (
         // Normal items
         <a
-          href={value as string}
+          href={(ROUTES.WEARETOP + value) as string}
           class="after-star flex items-center px-4 py-10 transition-colors last-of-type:relative last-of-type:bg-cpurple-100 hover:bg-cpurple-200 [&:first-of-type>svg]:skew-x-[-18deg]"
         >
           <Icon
