@@ -25,7 +25,27 @@ export default {
           DEFAULT: "#ce04d7",
         },
       },
+      backgroundImage: {
+        "hero-img": "url('/images/hero.webp')",
+        "dotted-overlay": "url('/images/gridtile.webp')",
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addComponents }) {
+      addComponents({
+        ".heading-1": {
+          fontSize: "clamp(2.125rem, 5vw, 4rem)",
+        },
+        ".dotted-overlay": {
+          backgroundImage: "url('/images/gridtile.webp')",
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 3,
+        },
+      });
+    },
+  ],
 };
