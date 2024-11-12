@@ -1,0 +1,107 @@
+<section class="w-full bg-white" id="counter">
+  <div class="counter__items container">
+    <div class="counter__item">
+      <h3 class="counter__number" data-val="500">+0</h3>
+      <p class="counter__description">Projects</p>
+    </div>
+    <div class="counter__item">
+      <h3 class="counter__number" data-val="10">+0</h3>
+      <p class="counter__description">Years</p>
+    </div>
+    <div class="counter__item">
+      <h3 class="counter__number" data-val="200">+0</h3>
+      <p class="counter__description">Students</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .counter__items {
+    height: auto;
+    padding: 3rem 0;
+    display: grid;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+  }
+  @media (min-width: 768px) {
+    .counter__items {
+      justify-content: space-between;
+      height: auto;
+      padding: 6rem 0;
+    }
+  }
+  .counter__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .counter__number {
+    @apply text-xl font-bold text-black;
+  }
+  @media (min-width: 768px) {
+    .counter__number {
+      @apply text-4xl;
+    }
+  }
+  .counter__description {
+    @apply font-normal text-black;
+  }
+  @media (min-width: 768px) {
+    .counter__description {
+      @apply text-2xl;
+    }
+  }
+</style>
+
+<script type="module" is:inline>
+  // Marca el script como del lado del cliente
+  export default function initCounter() {
+    const counterSection = document.getElementById("counter");
+    const numCounters = document.querySelectorAll(".counter__number");
+
+    const animateCounters = () => {
+      numCounters.forEach((counter) => {
+        const updateCount = () => {
+          const target = parseInt(counter.getAttribute("data-val") || "0");
+          const count = parseInt(counter.textContent || "0");
+          const speed = 200;
+          const increment = target / speed;
+
+          if (count < target) {
+            counter.textContent = "+" + Math.ceil(count + increment).toString();
+            setTimeout(updateCount, 1);
+          } else {
+            counter.textContent = "+" + target.toString();
+          }
+        };
+        updateCount();
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCounters();
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        root: null,
+        threshold: 0.7,
+      },
+    );
+
+    if (counterSection) {
+      observer.observe(counterSection);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    initCounter();
+  });
+</script>
