@@ -1,0 +1,73 @@
+<script>
+  import createGlobe from "cobe";
+
+  class GlobeElement extends HTMLElement {
+    constructor() {
+      super();
+      this.initGlobe();
+    }
+
+    async initGlobe() {
+      const canvas = this.querySelector("canvas");
+      if (!canvas) return;
+
+      let phi = 0;
+
+      const globe = createGlobe(canvas, {
+        devicePixelRatio: 2,
+        width: 600 * 2,
+        height: 600 * 2,
+        phi: 0,
+        theta: 0,
+        dark: -2.8,
+        diffuse: 1.2,
+        mapSamples: 16000,
+        mapBrightness: 6,
+        baseColor: [0.3, 0.3, 0.3],
+        markerColor: [0.1, 0.8, 1],
+        glowColor: [1, 1, 1],
+        markers: [
+          // longitude latitude
+          { location: [37.7595, -122.4367], size: 0.03 },
+          { location: [40.7128, -74.006], size: 0.1 },
+          { location: [51.5074, -0.1278], size: 0.05 },
+          { location: [35.6895, 139.6917], size: 0.08 },
+          { location: [55.7558, 37.6176], size: 0.07 },
+          { location: [31.2304, 121.4737], size: 0.09 },
+          { location: [-33.8688, 151.2093], size: 0.06 },
+          { location: [-22.9068, -43.1729], size: 0.04 },
+          { location: [19.4326, -99.1332], size: 0.1 },
+          { location: [37.7749, -122.4194], size: 0.03 },
+        ],
+        onRender: (state) => {
+          state.phi = phi;
+          phi += 0.008;
+        },
+      });
+
+      // Cleanup
+      // @ts-ignore
+      this.cleanup = () => {
+        globe.destroy();
+      };
+    }
+
+    disconnectedCallback() {
+      // @ts-ignore
+      if (this.cleanup) {
+        // @ts-ignore
+
+        this.cleanup();
+      }
+    }
+  }
+
+  // Register the custom element
+  customElements.define("globe-element", GlobeElement);
+</script>
+
+<globe-element>
+  <canvas
+    style="width: 600px; height: 600px; max-width: 100%; aspect-ratio: 1;"
+    class={Astro.props.className}></canvas>
+</globe-element>
