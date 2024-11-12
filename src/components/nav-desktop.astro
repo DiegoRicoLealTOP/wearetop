@@ -4,7 +4,7 @@ import { ROUTES } from "@/lib/constants";
 import { formatText, hasSubMenus } from "@/utils/nav";
 ---
 
-<nav class="relative hidden flex-wrap text-[10px] md:flex">
+<nav class="relative hidden flex-wrap text-[10px] lg:flex">
   {
     Object.entries(ROUTES.NAV_LINKS).map(([key, value]) =>
       hasSubMenus(value) ? (
@@ -70,7 +70,7 @@ import { formatText, hasSubMenus } from "@/utils/nav";
   }
 </nav>
 
-<nav class="hidden gap-x-1 md:flex">
+<nav class="hidden gap-x-1 lg:flex">
   {
     Object.entries(ROUTES.SOCIALS).map(([key, value]) => (
       <a
