@@ -1,0 +1,35 @@
+---
+import { ROUTES } from "@/lib/constants";
+import { Icon } from "astro-icon/components";
+---
+
+<footer class="bg-black text-white">
+  <section
+    class="container flex flex-col items-center justify-between gap-y-8 py-12 md:flex-row"
+  >
+    <p class="order-2 text-center text-xs">
+      &copy; {new Date().getFullYear()} WeAreTop. All rights reserved. Powered by
+      <a
+        class="underline decoration-neutral-500 decoration-dotted underline-offset-[5px] transition-colors duration-150 ease-in hover:text-czyan"
+        href="https://rxtsel.dev"
+        target="_blank"
+      >
+        @rxtsel.</a
+      >
+    </p>
+    <nav class="flex gap-x-1 md:order-2">
+      {
+        Object.entries(ROUTES.SOCIALS).map(([key, value]) => (
+          <a
+            href={value}
+            target="_blank"
+            class="transition-opacity hover:opacity-80"
+            aria-label={key.toLowerCase()}
+          >
+            <Icon name={`socials/${key.toLowerCase()}`} class="size-6" />
+          </a>
+        ))
+      }
+    </nav>
+  </section>
+</footer>
