@@ -1,0 +1,212 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div
+  class="timeline relative after:dotted-overlay after:absolute after:inset-0"
+>
+  <div class="video-timeline">
+    <!-- Video sits in the background stuck-->
+    <div class="video-container fluid">
+      <video src="/videos/MBA.mp4" loop autoplay muted></video>
+      <!-- This needs a 100vh mask inside of an element that's smaller in size to offset text -->
+      <section class="video-mask fluid">
+        <h1 class="fluid flex flex-col items-center justify-center">
+          <Icon name="logos/wearetop-w" class="fluid size-6" />
+          <span
+            class="font-bold"
+            data-gramm="false"
+            data-gramm_editor="false"
+            data-enable-grammarly="false"
+            contenteditable="true">WeAreTop</span
+          >
+        </h1>
+      </section>
+    </div>
+
+    <section class="spacer"></section>
+  </div>
+</div>
+
+<svg class="svg-filter">
+  <defs>
+    <filter id="knockout-filter" color-interpolation-filters="sRGB">
+      <feColorMatrix
+        result="knocked"
+        type="matrix"
+        values="1 0 0 0 0
+                    0 1 0 0 0
+                    0 0 1 0 0
+                    -1 -1 -1 1 0"
+      ></feColorMatrix>
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="3" intercept="-1"></feFuncR>
+        <feFuncG type="linear" slope="3" intercept="-1"></feFuncG>
+        <feFuncB type="linear" slope="3" intercept="-1"></feFuncB>
+      </feComponentTransfer>
+      <feComponentTransfer>
+        <feFuncR type="table" tableValues="0 0 0 0 0 1 1 1 1 1"></feFuncR>
+        <feFuncG type="table" tableValues="0 0 0 0 0 1 1 1 1 1"></feFuncG>
+        <feFuncB type="table" tableValues="0 0 0 0 0 1 1 1 1 1"></feFuncB>
+      </feComponentTransfer>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <!-- Step 1: Blur the element -->
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"
+      ></feGaussianBlur>
+
+      <!-- Step 2: Offset the blurred shadow -->
+      <feOffset in="blur" dx="0" dy="0" result="offsetBlur"></feOffset>
+
+      <!-- Step 3: Merge original graphic with the blurred shadow -->
+      <feFlood flood-color="white" result="glowColor"></feFlood>
+      <feComposite in2="offsetBlur" operator="in"></feComposite>
+      <feMerge>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+        <feMergeNode></feMergeNode>
+      </feMerge>
+    </filter>
+  </defs>
+</svg>
+
+<style>
+  @layer animation {
+    :root {
+      timeline-scope: --buffer;
+    }
+
+    .spacer {
+      height: 150dvh;
+      margin-top: 40dvh;
+      view-timeline: --buffer;
+    }
+
+    .video-mask h1 {
+      scale: 11;
+      transform-origin: 50% 70%;
+      animation: shrink both ease-out;
+      animation-timeline: --buffer;
+      animation-range: entry;
+
+      @media (max-width: 1024px) {
+        scale: 6;
+      }
+      @media (max-width: 768px) {
+        scale: 4;
+      }
+      @media (max-width: 480px) {
+        scale: 3;
+      }
+    }
+
+    @keyframes shrink {
+      to {
+        scale: var(--scale, 33);
+      }
+    }
+
+    @property --active {
+      inherits: true;
+      initial-value: 0;
+      syntax: "<number>";
+    }
+
+    @keyframes reveal {
+      to {
+        transform: translateY(-10%);
+        scale: 53;
+        display: none;
+      }
+    }
+    @media (max-width: 1024px) {
+      @keyframes reveal {
+        to {
+          transform: translateY(-10%);
+          scale: 21;
+          display: none;
+        }
+      }
+    }
+    @media (max-width: 768px) {
+      @keyframes reveal {
+        to {
+          transform: translateY(-10%);
+          scale: 15;
+          display: none;
+        }
+      }
+    }
+    @media (max-width: 648px) {
+      @keyframes reveal {
+        to {
+          transform: translateY(-10%);
+          scale: 10;
+          display: none;
+        }
+      }
+    }
+  }
+
+  @layer demo {
+    .svg-filter {
+      width: 0;
+      height: 0;
+      position: absolute;
+    }
+
+    /* Video layout stuff */
+    .video-container {
+      --font-level: var(--font, 10);
+      position: sticky;
+      top: 95px;
+      height: calc(100dvh - 95px);
+
+      @media (max-width: 1024px) {
+        top: 64px;
+        height: calc(100dvh - 60px);
+      }
+    }
+
+    [data-svg="true"] .video-mask {
+      filter: none;
+      background: transparent;
+    }
+
+    .video-mask {
+      height: calc(100dvh - 95px);
+      @media (max-width: 1024px) {
+        height: calc(100dvh - 60px);
+      }
+      position: absolute;
+      z-index: 2;
+      background: black;
+      color: white;
+      display: grid;
+      place-items: center;
+      filter: url(#knockout-filter);
+      inset: 0;
+      overflow: hidden;
+      scale: 1;
+      animation: reveal both cubic-bezier(0.4, 0, 0.2, 1);
+      animation-timeline: --buffer;
+      animation-range: entry;
+    }
+
+    video {
+      height: calc(100dvh - 95px) !important;
+      object-position: top;
+      @media (max-width: 1024px) {
+        height: calc(100dvh - 60px) !important;
+      }
+      width: 100vw !important;
+      object-fit: cover;
+    }
+
+    .video-mask h1 {
+      display: flex;
+      text-align: center;
+      margin: 0;
+      anchor-name: --head;
+    }
+  }
+</style>
