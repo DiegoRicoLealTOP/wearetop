@@ -3,7 +3,7 @@ import { Icon } from "astro-icon/components";
 ---
 
 <div
-  class="timeline relative after:dotted-overlay after:absolute after:inset-0"
+  class="timeline relative after:dotted-overlay after:pointer-events-none after:absolute after:inset-0 after:z-0"
 >
   <div class="video-timeline">
     <!-- Video sits in the background stuck-->
@@ -22,6 +22,14 @@ import { Icon } from "astro-icon/components";
           >
         </h1>
       </section>
+      <a
+        role="button"
+        href="#bento"
+        class="absolute inset-x-0 bottom-5 z-50 mx-auto inline-block w-fit animate-bounce invert"
+        aria-label="Scroll down"
+      >
+        <Icon name="mouse" class="size-10" />
+      </a>
     </div>
 
     <section class="spacer"></section>
