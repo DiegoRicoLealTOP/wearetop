@@ -1,16 +1,22 @@
 <section class="w-full bg-white" id="counter">
   <div class="counter__items container">
     <div class="counter__item">
-      <h3 class="counter__number" data-val="500">+0</h3>
-      <p class="counter__description">Projects</p>
+      <h3 class="counter__number" data-symbol="%" data-val="100">0</h3>
+      <p class="counter__description">
+        Of our degree students graduate with industry experience
+      </p>
     </div>
     <div class="counter__item">
-      <h3 class="counter__number" data-val="10">+0</h3>
-      <p class="counter__description">Years</p>
+      <h3 class="counter__number" data-symbol="%" data-val="100">0</h3>
+      <p class="counter__description">
+        Graduates who are engaged in or available for work.
+      </p>
     </div>
     <div class="counter__item">
-      <h3 class="counter__number" data-val="200">+0</h3>
-      <p class="counter__description">Students</p>
+      <h3 class="counter__number" data-symbol="TOP" data-val="8">0</h3>
+      <p class="counter__description">
+        Employment in Australian higher education
+      </p>
     </div>
   </div>
 </section>
@@ -20,7 +26,7 @@
     height: auto;
     padding: 3rem 0;
     display: grid;
-    align-items: center;
+    align-items: start;
     gap: 1rem;
     justify-content: center;
     grid-template-columns: repeat(3, 1fr);
@@ -39,7 +45,7 @@
     align-items: center;
   }
   .counter__number {
-    @apply text-xl font-bold text-black;
+    @apply text-xl font-bold text-cpurple-100;
   }
   @media (min-width: 768px) {
     .counter__number {
@@ -47,12 +53,7 @@
     }
   }
   .counter__description {
-    @apply font-normal text-black;
-  }
-  @media (min-width: 768px) {
-    .counter__description {
-      @apply text-2xl;
-    }
+    @apply w-full text-balance text-xs font-normal text-cpurple-200 md:text-base lg:max-w-60;
   }
 </style>
 
@@ -66,15 +67,23 @@
       numCounters.forEach((counter) => {
         const updateCount = () => {
           const target = parseInt(counter.getAttribute("data-val") || "0");
+          const targetSymbol = counter.getAttribute("data-symbol");
           const count = parseInt(counter.textContent || "0");
           const speed = 200;
           const increment = target / speed;
 
           if (count < target) {
-            counter.textContent = "+" + Math.ceil(count + increment).toString();
+            counter.textContent =
+              targetSymbol !== "%"
+                ? `${targetSymbol} ` + Math.ceil(count + increment).toString()
+                : Math.ceil(count + increment).toString() + ` ${targetSymbol}`;
+
             setTimeout(updateCount, 1);
           } else {
-            counter.textContent = "+" + target.toString();
+            counter.textContent =
+              targetSymbol !== "%"
+                ? `${targetSymbol} ` + target.toString()
+                : target.toString() + ` ${targetSymbol}`;
           }
         };
         updateCount();
