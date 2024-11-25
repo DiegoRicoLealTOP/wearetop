@@ -24,11 +24,11 @@ import { Icon } from "astro-icon/components";
       </section>
       <a
         role="button"
-        href="#bento"
-        class="absolute inset-x-0 bottom-5 z-50 mx-auto inline-block w-fit animate-bounce invert"
+        href="#pricing"
+        class="absolute inset-x-0 bottom-5 z-50 mx-auto w-fit animate-bounce"
         aria-label="Scroll down"
       >
-        <Icon name="mouse" class="size-10" />
+        <Icon name="navbar/chevron" class="size-10 rotate-90 invert" />
       </a>
     </div>
 
@@ -173,11 +173,6 @@ import { Icon } from "astro-icon/components";
         top: 64px;
         height: calc(100dvh - 60px);
       }
-    }
-
-    [data-svg="true"] .video-mask {
-      filter: none;
-      background: transparent;
     }
 
     .video-mask {
