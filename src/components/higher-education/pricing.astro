@@ -1,5 +1,5 @@
 ---
-import { formatPrice } from "@/utils/format-price";
+import NumberFlow from "@/components/higher-education/show-pricing.svelte";
 const PLANS = [
   {
     name: "MBA",
@@ -14,8 +14,8 @@ const PLANS = [
   {
     name: "Master of Information Technology",
     pricing: {
-      usd: 57760,
-      aud: 35500,
+      usd: 35500,
+      aud: 53760,
     },
     video: "https://www.youtube.com/watch?v=qEtfTObk7Lo",
     cover:
@@ -24,8 +24,8 @@ const PLANS = [
   {
     name: "Master of Management (Tourism and Hospitality)",
     pricing: {
-      usd: 51240,
-      aud: 33800,
+      usd: 33800,
+      aud: 51240,
     },
     video: "https://www.youtube.com/watch?v=cYCY2MIckp8",
     cover:
@@ -34,16 +34,23 @@ const PLANS = [
 ];
 ---
 
-<section class="grid place-items-center bg-gray-50 pt-32" id="pricing">
+<section
+  class="relative grid place-items-center bg-gray-50 pt-24 sm:pt-32"
+  id="pricing"
+>
   <div class="flex flex-col gap-20">
     <header class="flex flex-col gap-5 text-center">
-      <h2 class="heading-1 font-black">Make your spend, well-spent</h2>
-      <p class="">
-        Grabbing groceries? Pick up points. When in Japan? Spend in Yen. Big
-        life change? Try a Joint Account. However you spend — loremp is all you
-        need.
+      <h2 class="heading-1 font-black">Make your investment, well-invested</h2>
+      <p class="mx-auto max-w-prose">
+        The International College of Management, Sydney (ICMS) is a leader in
+        career-focused education that offers a wide range of undergraduate and
+        postgraduate degrees and courses.
       </p>
-      <p class="text-sm text-cpurple">T&amp;Cs apply.</p>
+      <p class="mx-auto max-w-prose text-sm text-cpurple">
+        ¡Work Integrated Learning! Professional Placements and analytical report
+        writing are experiences that will differentiate you from other graduates
+        in the competitive job market.
+      </p>
     </header>
     <ul class="container flex flex-wrap justify-center gap-5">
       {
@@ -57,78 +64,22 @@ const PLANS = [
               class="h-full w-full"
             />
             <header class="origin-start absolute inset-x-0 top-[38%] mx-auto flex w-fit -translate-y-1/2 flex-col gap-4">
-              <div class="space rounded-2xl bg-white/20 px-4 py-2 text-center text-5xl font-black drop-shadow-md backdrop-blur-sm">
-                <p
-                  data-splitting
-                  class="price-flip min-w-72 font-medium tabular-nums text-white"
-                  data-usd={formatPrice(plan.pricing.usd, "usd")}
-                  data-aud={formatPrice(plan.pricing.aud, "aud")}
-                >
-                  {formatPrice(plan.pricing.usd, "usd")}
-                </p>
-              </div>
-
-              <a
-                href={plan.video}
-                target="_blank"
-                class="mx-auto block w-fit rounded-md bg-white/20 px-6 py-2 text-sm font-bold uppercase text-white backdrop-blur-sm"
-              >
-                View
-              </a>
+              <NumberFlow
+                client:visible
+                usd={plan.pricing.usd}
+                aud={plan.pricing.aud}
+              />
             </header>
-            <footer class="absolute bottom-5 left-4 right-4 flex min-h-20 items-center justify-center text-balance rounded-2xl bg-white/20 px-4 py-4 text-center text-2xl font-medium leading-6 text-white drop-shadow-md backdrop-blur-sm">
+            <a
+              href={plan.video}
+              target="_blank"
+              class="absolute bottom-5 left-4 right-4 flex min-h-20 items-center justify-center text-balance rounded-2xl bg-white/20 px-4 py-4 text-center text-2xl font-medium leading-6 text-white drop-shadow-md backdrop-blur-sm"
+            >
               {plan.name}
-            </footer>
+            </a>
           </li>
         ))
       }
     </ul>
   </div>
 </section>
-
-<script type="module" is:inline>
-  import Splitting from "https://cdn.skypack.dev/pin/splitting@v1.1.0-AZ3NtkL9crW9hYpJxknY/mode=imports,min/optimized/splitting.js";
-  import { gsap } from "https://cdn.skypack.dev/gsap";
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const priceFlips = document.querySelectorAll(".price-flip");
-
-    priceFlips.forEach((element, index) => {
-      const result = Splitting({ target: element, by: "chars" });
-      const chars = result[0].chars;
-      const usdPrice = element.getAttribute("data-usd");
-      const audPrice = element.getAttribute("data-aud");
-      let isUSD = true;
-
-      function animatePrice() {
-        const nextPrice = isUSD ? audPrice : usdPrice;
-
-        chars.forEach((char, i) => {
-          const delay = 0.1 + index * 0.1 + i * 0.08;
-
-          // Desaparecer el carácter actual
-          gsap.to(char, {
-            opacity: 0,
-            duration: 0.2,
-            delay: delay,
-            onComplete: () => {
-              char.textContent = nextPrice[i] || " ";
-            },
-          });
-
-          // Aparecer el carácter nuevo
-          gsap.to(char, {
-            opacity: 1,
-            delay: delay + 0.2, // Para que la aparición tenga un pequeño retraso también
-            duration: 0.1,
-          });
-        });
-
-        isUSD = !isUSD;
-      }
-
-      // Cambiar los precios cada 6 segundos para cada elemento
-      setInterval(animatePrice, 6000);
-    });
-  });
-</script>

@@ -5,9 +5,12 @@ import tailwind from "@astrojs/tailwind";
 
 import icon from "astro-icon";
 
+import svelte from "@astrojs/svelte";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://new.wearetop.co",
   base: "/",
-  integrations: [tailwind(), icon()],
+  integrations: [tailwind(), icon(), svelte()],
 });
+

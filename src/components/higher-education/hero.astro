@@ -1,0 +1,25 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section
+  class="relative bg-black after:absolute after:inset-0 after:bg-dotted-overlay"
+>
+  <video
+    class="w-vw mx-auto"
+    src="/videos/MBA.mp4"
+    playsinline
+    muted
+    loop
+    autoplay
+    poster="/images/logo-black.webp"></video>
+
+  <a
+    role="button"
+    href="#pricing"
+    class="absolute inset-x-0 bottom-0 z-10 mx-auto w-fit animate-bounce"
+    aria-label="Scroll down"
+  >
+    <Icon name="mouse" class="size-6 text-white lg:size-10" />
+  </a>
+</section>
