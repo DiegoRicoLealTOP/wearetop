@@ -6,7 +6,7 @@ import { Icon } from "astro-icon/components";
   class="relative bg-black after:absolute after:inset-0 after:bg-dotted-overlay"
 >
   <video
-    class="w-vw mx-auto"
+    class="w-vw mx-auto aspect-video"
     src="/videos/MBA.mp4"
     playsinline
     muted
@@ -17,7 +17,7 @@ import { Icon } from "astro-icon/components";
   <a
     role="button"
     href="#pricing"
-    class="absolute inset-x-0 bottom-0 z-10 mx-auto w-fit animate-bounce"
+    class="absolute inset-x-0 bottom-0 z-10 mx-auto hidden w-fit animate-bounce lg:block"
     aria-label="Scroll down"
   >
     <Icon name="mouse" class="size-6 text-white lg:size-10" />
