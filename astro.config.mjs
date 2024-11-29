@@ -13,4 +13,3 @@ export default defineConfig({
   base: "/",
   integrations: [tailwind(), icon(), svelte()],
 });
-
