@@ -1,99 +1,51 @@
----
-import { Icon } from "astro-icon/components";
-import Pricing from "@/components/higher-education/pricing.astro";
----
-
-<div class="timeline relative hidden lg:block">
-  <div class="video-timeline">
-    <!-- Video sits in the background stuck-->
-    <div class="video-container fluid bg-gray-50">
-      <!-- This needs a 100vh mask inside of an element that's smaller in size to offset text -->
-      <section class="video-mask fluid">
-        <h1 class="fluid flex flex-col items-center justify-center">
-          <Icon name="logos/wearetop-w" class="fluid size-20 md:size-6" />
-          <span class="font-bold mix-blend-difference"
-            >Work Integrated Learning!
-          </span>
-        </h1>
-      </section>
-    </div>
-
-    <section class="spacer"></section>
-  </div>
-</div>
+<section class="relative grid place-items-center bg-black">
+  <h3 class="z-10 text-white">Work Integrated Learning!</h3>
+</section>
 
 <style>
-  @layer animation {
-    :root {
-      timeline-scope: --buffer;
-    }
+  section {
+    min-height: 300px;
+    --scale: 2;
+    --translate: -32.7%;
+    --topbarHeight: 64px;
 
-    .spacer {
-      height: calc(100dvh - 95px);
-      view-timeline: --buffer;
+    @media (min-width: 768px) {
+      min-height: 75dvh;
     }
-
-    .video-mask h1 {
-      scale: 2;
-      @media (min-width: 768px) {
-        scale: 6;
-      }
-      transform-origin: center;
-      animation: shrink both ease-out;
-      animation-timeline: --buffer;
-      animation-range: entry;
-    }
-
-    @keyframes shrink {
-      to {
-        scale: 33;
-        transform: translate(7%, -15%);
-      }
-    }
-
-    @keyframes reveal {
-      from {
-        @apply bg-black;
-      }
-      to {
-        @apply bg-black;
-      }
+    @media (min-width: 1024px) {
+      min-height: calc(100dvh - var(--topbarHeight));
     }
   }
 
-  @layer demo {
-    .video-container {
-      position: sticky;
-      height: 100dvh;
-      top: 60px;
-      @media (min-width: 1024px) {
-        top: 95px;
-      }
-    }
+  h3 {
+    scale: var(--scale);
+    animation-range: 0 100dvh;
+    animation: shrink both ease-out;
+    animation-timeline: view(block 20% 30%);
+    --scale: 2.5;
+    --translate: -33.7%;
 
-    .video-mask {
-      height: calc(100dvh - 95px);
-      @media (max-width: 1024px) {
-        height: calc(100dvh - 60px);
-      }
-      position: absolute;
-      z-index: 2;
-      background: black;
-      color: white;
-      display: grid;
-      place-items: center;
-      inset: 0;
-      scale: 1;
-      animation: reveal both cubic-bezier(0.4, 0, 0.2, 1);
-      animation-timeline: --buffer;
-      animation-range: entry 90%;
+    @media (min-width: 768px) {
+      --scale: 3.7;
+      --translate: -32%;
     }
+    @media (min-width: 1024px) {
+      --scale: 4.2;
+      --translate: -32%, 35%;
+    }
+    @media (min-width: 1280px) {
+      --scale: 4.4;
+      --translate: -32%, 25%;
+    }
+    @media (min-width: 1536px) {
+      --scale: 6;
+      --translate: -32%, 25%;
+    }
+  }
 
-    .video-mask h1 {
-      display: flex;
-      text-align: center;
-      margin: 0;
-      anchor-name: --head;
+  @keyframes shrink {
+    to {
+      transform: scale(var(--scale, 1)) translate(var(--translate));
     }
   }
 </style>

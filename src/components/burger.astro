@@ -63,10 +63,14 @@
     animation: colorActive 150ms both;
   }
 
+  /* Black topbar on checked */
+  :has(.check-hamburger:checked) #header {
+    @apply bg-black;
+  }
+
   /* remove scroll when nav is open */
-  :has(.check-hamburger:checked) body,
-  :has(.check-lang:checked) body {
-    @apply overflow-hidden;
+  :has(.check-hamburger:checked) html {
+    @apply !overflow-hidden;
   }
 
   @keyframes colorActive {

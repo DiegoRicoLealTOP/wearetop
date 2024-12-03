@@ -7,9 +7,8 @@ const PLANS = [
       usd: 56160,
       aud: 37000,
     },
-    video: "https://www.youtube.com/watch?v=_zKqU59tDuI",
-    cover:
-      "https://images.pexels.com/photos/29137971/pexels-photo-29137971/free-photo-of-scenic-autumn-pathway-lined-with-vibrant-leaves.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+    video: "https://www.youtube.com/watch?v=lUVxlJwVkp0",
+    cover: "/images/card-1.webp",
   },
   {
     name: "Master of Information Technology",
@@ -17,9 +16,8 @@ const PLANS = [
       usd: 35500,
       aud: 53760,
     },
-    video: "https://www.youtube.com/watch?v=qEtfTObk7Lo",
-    cover:
-      "https://images.pexels.com/photos/28262526/pexels-photo-28262526/free-photo-of-a-woman-in-jeans-and-white-shirt-posing-on-a-street-light.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+    video: "https://www.youtube.com/watch?v=SjG64_mH0XU",
+    cover: "/images/card-2.webp",
   },
   {
     name: "Master of Management (Tourism and Hospitality)",
@@ -27,25 +25,26 @@ const PLANS = [
       usd: 33800,
       aud: 51240,
     },
-    video: "https://www.youtube.com/watch?v=cYCY2MIckp8",
-    cover:
-      "https://images.pexels.com/photos/27940276/pexels-photo-27940276/free-photo-of-a-man-sitting-in-the-grass-wearing-sunglasses.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+    video: "https://www.youtube.com/watch?v=9C6Oz_Fwe48",
+    cover: "/images/card-3.webp",
   },
 ];
 ---
 
-<section class="relative grid place-items-center bg-gray-50 pt-10" id="pricing">
-  <div class="flex flex-col gap-20">
-    <header class="flex flex-col gap-5 text-center">
-      <h2 class="heading-1 text-pretty font-black">
-        Make your investment, well-invested
-      </h2>
-      <p class="mx-auto max-w-prose">
+<section
+  class="relative grid place-items-center bg-gray-50 py-12 md:py-24"
+  id="pricing"
+>
+  <div class="container flex flex-col gap-4 sm:gap-6 lg:gap-20">
+    <header
+      class="mx-auto flex w-fit max-w-screen-lg flex-col gap-5 text-left *:text-sm *:sm:text-2xl"
+    >
+      <p class="leading-tight tracking-wide">
         The International College of Management, Sydney (ICMS) is a leader in
         career-focused education that offers a wide range of undergraduate and
         postgraduate degrees and courses.
       </p>
-      <p class="mx-auto max-w-prose text-sm text-cpurple">
+      <p class="leading-tight tracking-wide text-cpurple">
         ¡Work Integrated Learning! Professional Placements and analytical report
         writing are experiences that will differentiate you from other graduates
         in the competitive job market.
@@ -54,13 +53,13 @@ const PLANS = [
     <ul class="container flex flex-wrap justify-center gap-5">
       {
         PLANS.map((plan) => (
-          <li class="relative h-full max-h-[518px] w-full max-w-[366px] shrink-0 overflow-hidden rounded-2xl odd:scale-90">
+          <li class="relative h-full max-h-[518px] w-full max-w-[366px] shrink-0 overflow-hidden rounded-2xl shadow-sm odd:scale-90">
             <img
               src={plan.cover}
               width="320"
               height="100%"
               loading="lazy"
-              class="h-full w-full"
+              class="aspect-[9/16] h-full w-full object-cover"
             />
             <header class="origin-start absolute inset-x-0 top-[38%] mx-auto flex w-fit -translate-y-1/2 flex-col gap-4">
               <NumberFlow
@@ -72,7 +71,7 @@ const PLANS = [
             <a
               href={plan.video}
               target="_blank"
-              class="absolute bottom-5 left-4 right-4 flex min-h-20 items-center justify-center text-balance rounded-2xl bg-white/20 px-4 py-4 text-center text-2xl font-medium leading-6 text-white drop-shadow-md backdrop-blur-sm"
+              class="absolute bottom-5 left-4 right-4 flex min-h-20 items-center justify-center text-balance rounded-2xl bg-black/10 px-4 py-4 text-center text-2xl font-medium leading-6 text-white drop-shadow-md backdrop-blur-sm"
             >
               {plan.name}
             </a>
