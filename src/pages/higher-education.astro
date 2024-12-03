@@ -6,6 +6,7 @@ import CountDown from "@/components/higher-education/countdown.astro";
 import Bento from "@/components/higher-education/bento.astro";
 import ScrollDrivenAnimation from "@/components/higher-education/scroll-driven-animation.astro";
 import Pricing from "@/components/higher-education/pricing.astro";
+import Contact from "@/components/higher-education/contact.svelte";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -15,4 +16,5 @@ import Pricing from "@/components/higher-education/pricing.astro";
   <Pricing />
   <Bento />
   <Info />
+  <Contact client:visible />
 </Layout>
