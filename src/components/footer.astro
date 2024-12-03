@@ -1,11 +1,6 @@
----
-import { ROUTES } from "@/lib/constants";
-import { Icon } from "astro-icon/components";
----
-
 <footer class="bg-black text-white">
   <section
-    class="container flex flex-col items-center justify-between gap-y-8 py-12 md:flex-row"
+    class="container flex flex-col items-center justify-between gap-3 py-5 text-xs"
   >
     <p class="order-2 text-center text-xs">
       &copy; {new Date().getFullYear()} WeAreTop. All rights reserved. Powered by
@@ -17,19 +12,5 @@ import { Icon } from "astro-icon/components";
         @rxtsel.</a
       >
     </p>
-    <nav class="flex gap-x-1 md:order-2">
-      {
-        Object.entries(ROUTES.SOCIALS).map(([key, value]) => (
-          <a
-            href={value}
-            target="_blank"
-            class="transition-opacity hover:opacity-80"
-            aria-label={key.toLowerCase()}
-          >
-            <Icon name={`socials/${key.toLowerCase()}`} class="size-6" />
-          </a>
-        ))
-      }
-    </nav>
   </section>
 </footer>

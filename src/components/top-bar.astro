@@ -5,7 +5,10 @@ import NavDesktop from "@/components/nav-desktop.astro";
 import NavMobile from "@/components/nav-mobile.astro";
 ---
 
-<header class="sticky inset-0 z-50 bg-black text-white">
+<header
+  class="fixed inset-0 z-50 h-fit bg-black/10 text-white transition-colors"
+  id="header"
+>
   <div class="container flex min-h-16 items-center justify-between">
     <Burger />
 
@@ -40,5 +43,17 @@ import NavMobile from "@/components/nav-mobile.astro";
     color: white;
     padding-left: 2px;
     margin-top: -9px;
+  }
+
+  #header {
+    animation: reveal linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100dvh;
+  }
+
+  @keyframes reveal {
+    to {
+      @apply bg-black shadow;
+    }
   }
 </style>

@@ -35,16 +35,13 @@ export default {
     function ({ addComponents }) {
       addComponents({
         ".heading-1": {
-          fontSize: "clamp(2.125rem, 5vw, 4rem)",
+          fontSize: "clamp(1.7rem, 3vw, 4rem)",
         },
         ".heading-2": {
           fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
         },
         ".heading-3": {
           fontSize: "clamp(1.225rem, 3vw, 1.15rem)",
-        },
-        ".big-heading": {
-          fontSize: "clamp(2.125rem, 5vw, 5rem)",
         },
         ".dotted-overlay": {
           backgroundImage: "url('/images/gridtile.webp')",
