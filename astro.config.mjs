@@ -12,4 +12,7 @@ export default defineConfig({
   site: "https://new.wearetop.co",
   base: "/",
   integrations: [tailwind(), icon(), svelte()],
+  redirects: {
+    "/": "/higher-education",
+  },
 });
