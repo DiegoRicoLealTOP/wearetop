@@ -155,7 +155,7 @@
             ¿Quieres que te enviemos información importante?
           </label>
 
-          <span class="text-xs block">Al continuar, aceptas nuestras políticas de <a href="https://www.wearetop.co/politica-de-proteccion-de-datos/" target="_blank">tratamiento de datos.</a></span>
+          <span class="text-xs block">Al continuar, aceptas nuestras políticas de <a class="hover:text-cpurple-100 transition-colors duration-150 ease-in decoration-neutral-500 decoration-dotted underline-offset-[5px] underline" href="https://www.wearetop.co/politica-de-proteccion-de-datos/" target="_blank">tratamiento de datos.</a></span>
 
 					<button
 						type="submit"
