@@ -8,6 +8,7 @@
     email: string;
     englishLevel: string;
     interestedIn: string;
+    newsletter: boolean
 }
 
 	let showModal = writable(false);
@@ -17,7 +18,8 @@
 		phone: '',
 		email: '',
 		englishLevel: '',
-		interestedIn: ''
+		interestedIn: '',
+    newsletter: false
 	});
 
 	const englishLevels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
@@ -50,6 +52,7 @@
 			if (response.ok) {
 				alert('Thanks for your submission!');
 				$showModal = false;
+        form.reset()
 			} else {
 				alert('Oops! There was a problem submitting your form');
 			}
@@ -143,6 +146,15 @@
 						placeholder="What are you interested in?"
 						class="w-full py-2 px-4 border h-24"
 					></textarea>
+
+          <label class="flex gap-3 items-center text-sm">
+            <input type="checkbox" name="newsletter"
+              bind:checked={$formData.newsletter}
+            />
+            ¿Quieres que te enviemos información importante?
+          </label>
+
+          <span class="text-xs block">Al continuar, aceptas nuestras políticas de <a href="https://www.wearetop.co/politica-de-proteccion-de-datos/" target="_blank">tratamiento de datos.</a></span>
 
 					<button
 						type="submit"
