@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { writable } from 'svelte/store';
+  import { toast } from "svelte-sonner"
 
   export interface FormData {
     firstName: string;
@@ -50,11 +51,11 @@
 			});
 
 			if (response.ok) {
-				alert('Thanks for your submission!');
+				toast.success('Thanks for your submission!');
 				$showModal = false;
         form.reset()
 			} else {
-				alert('Oops! There was a problem submitting your form');
+				toast.error('Oops! There was a problem submitting your form');
 			}
 		} catch (error) {
 			console.error('Submission error:', error);
