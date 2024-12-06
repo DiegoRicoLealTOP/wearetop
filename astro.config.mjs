@@ -13,6 +13,9 @@ export default defineConfig({
   base: "/",
   integrations: [tailwind(), icon(), svelte()],
   redirects: {
-    "/": "/higher-education",
+    "/": {
+      status: 307,
+      destination: "/higher-education",
+    },
   },
 });
