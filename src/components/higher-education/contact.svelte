@@ -96,7 +96,7 @@
               bind:value={$formData.firstName}
               placeholder="First Name"
               required
-              class="w-full py-2 px-4 border"
+              class="w-full py-2 px-4 border rounded-none"
               autocomplete="given-name"
             />
             <input
@@ -105,7 +105,7 @@
               bind:value={$formData.lastName}
               placeholder="Last Name"
               required
-              class="w-full py-2 px-2 border"
+              class="w-full py-2 px-2 border rounded-none"
               autocomplete="family-name"
             />
           </div>
@@ -116,7 +116,7 @@
             bind:value={$formData.phone}
             placeholder="Phone"
             required
-            class="w-full py-2 px-4 border"
+            class="w-full py-2 px-4 border rounded-none"
             autocomplete="tel"
           />
 
@@ -126,7 +126,7 @@
             bind:value={$formData.email}
             placeholder="Email"
             required
-            class="w-full py-2 px-4 border"
+            class="w-full py-2 px-4 border rounded-none"
             autocomplete="email"
           />
 
@@ -134,7 +134,7 @@
             name="englishLevel"
             bind:value={$formData.englishLevel}
             required
-            class="w-full py-2 px-4 border bg-white"
+            class="w-full py-2 px-4 border rounded-none bg-white"
           >
             <option value="">Select English Level</option>
             {#each englishLevels as level}
@@ -146,7 +146,7 @@
             name="interestedIn"
             bind:value={$formData.interestedIn}
             placeholder="What are you interested in?"
-            class="w-full py-2 px-4 border h-24"
+            class="w-full py-2 px-4 border rounded-none h-24"
           ></textarea>
 
           <label class="flex gap-3 items-center text-sm">
