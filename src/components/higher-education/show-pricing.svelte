@@ -1,6 +1,6 @@
 <script lang="ts">
-  import NumberFlow from '@number-flow/svelte'
-  import { onDestroy } from 'svelte';
+  import NumberFlow from "@number-flow/svelte";
+  import { onDestroy } from "svelte";
 
   export let usd: number;
   export let aud: number;
@@ -13,9 +13,9 @@
 
   // Función para cambiar la moneda
   const toggleCurrency = () => {
-    currentCurrency = currentCurrency === "usd" ? "aud" : "usd"
-    value = currentCurrency === "usd" ? usd : aud
-  }
+    currentCurrency = currentCurrency === "usd" ? "aud" : "usd";
+    value = currentCurrency === "usd" ? usd : aud;
+  };
 
   const SECONDS = 8 * 1000; // sec * mils
 
@@ -28,13 +28,15 @@
   });
 </script>
 
-<div
+<button
   class="space rounded-2xl bg-black/10 px-4 py-2 text-center text-3xl font-black text-white drop-shadow-md backdrop-blur-sm cursor-pointer"
   onclick={toggleCurrency}
 >
   <NumberFlow
-    value={value}
-    format={{ style: 'currency', currency: 'USD', trailingZeroDisplay: 'stripIfInteger' }}
-    prefix={`${currentCurrency.toUpperCase()} `}
+    {value}
+    format={{
+      trailingZeroDisplay: "stripIfInteger",
+    }}
+    prefix={`${currentCurrency.toUpperCase()} $`}
   />
-</div>
+</button>

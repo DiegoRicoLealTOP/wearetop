@@ -25,7 +25,7 @@
     animation-duration: 3ms; /* Firefox requires this to apply the animation */
 
     --scale: 2.3;
-    --translate: -33%, 35%;
+    --translate: -33%;
 
     @media (min-width: 768px) {
       --scale: 3.3;
@@ -33,21 +33,21 @@
     }
     @media (min-width: 1024px) {
       --scale: 4.2;
-      --translate: -32%, 35%;
+      --translate: -32%;
     }
     @media (min-width: 1280px) {
       --scale: 4.4;
-      --translate: -32%, 25%;
+      --translate: -32%;
     }
     @media (min-width: 1536px) {
-      --scale: 6;
-      --translate: -32%, 25%;
+      --scale: 5.1;
+      --translate: -32%;
     }
   }
 
   @keyframes shrink {
     to {
-      transform: scale(var(--scale, 1)) translate(var(--translate));
+      transform: scale(var(--scale, 1)) translateX(var(--translate));
     }
   }
 </style>
