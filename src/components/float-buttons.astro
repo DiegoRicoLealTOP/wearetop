@@ -1,0 +1,50 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div class="fixed bottom-4 left-4 z-10 flex flex-col gap-1 text-white">
+  <a
+    class="group relative z-2 grid w-fit grid-cols-[auto_0fr] items-center overflow-hidden bg-[#25D366] px-2.5 py-2 transition-[grid-template-columns] duration-150 hover:grid-cols-[auto_1fr] hover:gap-2"
+    href="https://api.whatsapp.com/send?phone=573183795288&text=%C2%A1Hola!%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20%F0%9F%98%84"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Icon name="whatsapp" class="size-6" />
+
+    <span
+      class="overflow-hidden whitespace-nowrap opacity-0 transition-opacity duration-100 group-hover:opacity-100"
+    >
+      Hablemos
+    </span>
+  </a>
+
+  <a
+    class="group relative z-2 grid w-fit grid-cols-[auto_0fr] items-center overflow-hidden bg-[#006BFF] px-2.5 py-2 transition-[grid-template-columns] duration-150 hover:grid-cols-[auto_1fr] hover:gap-2"
+    href="#"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Icon name="calendar" class="size-6 text-white" />
+
+    <span
+      class="overflow-hidden whitespace-nowrap opacity-0 transition-opacity duration-100 group-hover:opacity-100"
+    >
+      Agendar Asesoría
+    </span>
+  </a>
+
+  <a
+    class="group relative z-2 grid w-fit grid-cols-[auto_0fr] items-center overflow-hidden bg-[#E939EF] px-2.5 py-2 transition-[grid-template-columns] duration-150 hover:grid-cols-[auto_1fr] hover:gap-2"
+    href="#"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Icon name="brochure" class="size-6" />
+
+    <span
+      class="overflow-hidden whitespace-nowrap opacity-0 transition-opacity duration-150 group-hover:opacity-100"
+    >
+      Descargar Brochure
+    </span>
+  </a>
+</div>

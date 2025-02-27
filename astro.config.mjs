@@ -13,13 +13,6 @@ export default defineConfig({
   base: "/",
   integrations: [icon(), svelte()],
 
-  redirects: {
-    "/": {
-      status: 307,
-      destination: "/higher-education",
-    },
-  },
-
   vite: {
     plugins: [tailwindcss()],
   },
