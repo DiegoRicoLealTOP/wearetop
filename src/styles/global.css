@@ -28,18 +28,6 @@
   --color-cblack-300: #2c2c2c;
   --color-cblack-400: #0a0a0a;
   --color-cblack-500: #000000;
-
-  --animate-reveal: reveal 0.5s ease-in-out;
-  --animate-color-active: color-active 0.5s ease-in-out;
-}
-
-@layer keyframes {
-  @keyframes reveal {
-    to {
-      background-color: black;
-      shadow: var(--shadow-sm);
-    }
-  }
 }
 
 .container {
