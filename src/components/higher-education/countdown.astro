@@ -1,61 +1,51 @@
 <section class="w-full bg-white" id="counter">
-  <div class="counter__items container">
-    <div class="counter__item">
-      <h3 class="counter__number" data-symbol="%" data-val="100">0</h3>
-      <p class="counter__description">
+  <div
+    class="container grid h-auto grid-cols-3 justify-between gap-1 py-24 max-md:py-16"
+  >
+    <div class="flex flex-col items-center text-center">
+      <h3
+        class="text-cpurple-300 counter__number text-xl font-bold min-md:text-4xl"
+        data-symbol="%"
+        data-val="100"
+      >
+        0
+      </h3>
+      <p
+        class="text-cpurple-300 w-full text-xs font-normal text-balance md:text-base lg:max-w-60"
+      >
         Of our degree students graduate with industry experience
       </p>
     </div>
-    <div class="counter__item">
-      <h3 class="counter__number" data-symbol="%" data-val="100">0</h3>
-      <p class="counter__description">
+    <div class="flex flex-col items-center text-center">
+      <h3
+        class="text-cpurple-300 counter__number text-xl font-bold min-md:text-4xl"
+        data-symbol="%"
+        data-val="100"
+      >
+        0
+      </h3>
+      <p
+        class="text-cpurple-300 w-full text-xs font-normal text-balance md:text-base lg:max-w-60"
+      >
         Graduates who are engaged in or available for work.
       </p>
     </div>
-    <div class="counter__item">
-      <h3 class="counter__number" data-symbol="TOP" data-val="8">0</h3>
-      <p class="counter__description">
+    <div class="flex flex-col items-center text-center">
+      <h3
+        class="text-cpurple-300 counter__number text-xl font-bold min-md:text-4xl"
+        data-symbol="TOP"
+        data-val="8"
+      >
+        0
+      </h3>
+      <p
+        class="text-cpurple-300 w-full text-xs font-normal text-balance md:text-base lg:max-w-60"
+      >
         Employment in Australian higher education
       </p>
     </div>
   </div>
 </section>
-
-<style>
-  .counter__items {
-    height: auto;
-    padding: 3rem 0;
-    display: grid;
-    align-items: start;
-    gap: 1rem;
-    justify-content: center;
-    grid-template-columns: repeat(3, 1fr);
-    text-align: center;
-  }
-  @media (min-width: 768px) {
-    .counter__items {
-      justify-content: space-between;
-      height: auto;
-      padding: 6rem 0;
-    }
-  }
-  .counter__item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .counter__number {
-    @apply text-xl font-bold text-cpurple-100;
-  }
-  @media (min-width: 768px) {
-    .counter__number {
-      @apply text-4xl;
-    }
-  }
-  .counter__description {
-    @apply w-full text-balance text-xs font-normal text-cpurple-200 md:text-base lg:max-w-60;
-  }
-</style>
 
 <script type="module" is:inline>
   // Marca el script como del lado del cliente
