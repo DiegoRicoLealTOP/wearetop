@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import { ROUTES } from "@/lib/constants";
-import { formatText, hasSubMenus } from "@/utils/nav";
+import { formatText, hasSubMenus, formatRouteIcon } from "@/utils/nav";
 ---
 
 <div
@@ -20,7 +20,7 @@ import { formatText, hasSubMenus } from "@/utils/nav";
             <span class="flex h-full items-center justify-between px-4 py-4 transition-colors">
               <span class="flex">
                 <Icon
-                  name={`navbar/${formatText(key).toLowerCase()}`}
+                  name={`navbar/${formatRouteIcon(key)}`}
                   class="mr-2 size-2.5 rotate-[-40deg]"
                   aria-hidden="true"
                 />
@@ -76,10 +76,7 @@ import { formatText, hasSubMenus } from "@/utils/nav";
             class="after-star last-of-type:bg-cpurple-400 hover:bg-cpurple-200 flex items-center px-4 py-4 transition-colors last-of-type:relative [&:first-of-type>svg]:skew-x-[-18deg]"
             aria-label={formatText(value as string)}
           >
-            <Icon
-              name={`navbar/${formatText(key).toLowerCase()}`}
-              class="mr-2 size-2"
-            />
+            <Icon name={`navbar/${formatRouteIcon(key)}`} class="mr-2 size-2" />
             {formatText(key)}
           </a>
         ),
@@ -95,10 +92,7 @@ import { formatText, hasSubMenus } from "@/utils/nav";
           class="transition-opacity hover:opacity-80"
           target="_blank"
         >
-          <Icon
-            name={`socials/${formatText(key).toLowerCase()}`}
-            class="size-8"
-          />
+          <Icon name={`socials/${formatRouteIcon(key)}`} class="size-8" />
         </a>
       ))
     }
