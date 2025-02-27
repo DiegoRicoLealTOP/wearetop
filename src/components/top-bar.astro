@@ -26,6 +26,8 @@ import NavMobile from "@/components/nav-mobile.astro";
 </header>
 
 <style is:global>
+  @reference "../styles/global.css"
+
   /* Solo para asegurar que el hover funcione en movil */
   @media (width: <= 768px) {
     nav {
@@ -33,7 +35,7 @@ import NavMobile from "@/components/nav-mobile.astro";
     }
 
     nav div[class*="group"] > div {
-      @apply relative left-4 top-0 border-0 shadow-none;
+      @apply relative top-0 left-4 border-0 shadow-none;
     }
   }
 
@@ -49,11 +51,5 @@ import NavMobile from "@/components/nav-mobile.astro";
     animation: reveal linear both;
     animation-timeline: scroll();
     animation-range: 0 100dvh;
-  }
-
-  @keyframes reveal {
-    to {
-      @apply bg-black shadow;
-    }
   }
 </style>

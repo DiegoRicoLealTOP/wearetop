@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cpurple-100: #ce04d7;
+  --color-cpurple-200: #8224e3;
+  --color-cpurple-300: #7f4dee;
+  --color-cpurple-400: #6344a8;
+  --color-cpurple-500: #6208ad;
+
+  --color-cpink-100: #e939ef;
+  --color-cpink-200: #ce04d7;
+
+  --color-cteal-100: #37e5dc;
+  --color-cteal-200: #37ddd8;
+  --color-cteal-300: #29d9c2;
+  --color-cteal-400: #22d8a8;
+
+  --color-cblue: #408bd1;
+
+  --color-cgray-100: #f6f6f6;
+  --color-cgray-200: #eeeeee;
+  --color-cgray-300: #bbbbbb;
+  --color-cgray-400: #9d9d9d;
+  --color-cgray-500: #888888;
+
+  --color-cblack-100: #333333;
+  --color-cblack-200: #303030;
+  --color-cblack-300: #2c2c2c;
+  --color-cblack-400: #0a0a0a;
+  --color-cblack-500: #000000;
+
+  --animate-reveal: reveal 0.5s ease-in-out;
+  --animate-color-active: color-active 0.5s ease-in-out;
+}
+
+@layer keyframes {
+  @keyframes reveal {
+    to {
+      background-color: black;
+      shadow: var(--shadow-sm);
+    }
+  }
+}
+
+.container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@layer utilities {
+  .heading-1 {
+    font-size: clamp(1.7rem, 3vw, 4rem);
+  }
+  .heading-2 {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+  }
+  .heading-3 {
+    font-size: clamp(1.225rem, 3vw, 1.15rem);
+  }
+}
+
+@layer components {
+  .dotted-overlay::after {
+    background-image: url("/images/gridtile.webp");
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+  }
+}

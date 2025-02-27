@@ -74,7 +74,7 @@
 <div class="container mx-auto p-4 py-12 md:py-24 w-fit">
   <button
     on:click={openModal}
-    class="bg-cpurple-100 text-white px-4 py-2 hover:bg-cpurple-200 transition-colors"
+    class="bg-cpurple-300 text-white px-4 py-2 hover:bg-cpurple-400 transition-colors"
   >
     Apply now
   </button>
@@ -96,7 +96,7 @@
               bind:value={$formData.firstName}
               placeholder="First Name"
               required
-              class="w-full py-2 px-4 border rounded-none"
+              class="w-full py-2 px-4 border border-black/20 rounded-none"
               autocomplete="given-name"
             />
             <input
@@ -105,7 +105,7 @@
               bind:value={$formData.lastName}
               placeholder="Last Name"
               required
-              class="w-full py-2 px-2 border rounded-none"
+              class="w-full py-2 px-2 border border-black/20 rounded-none"
               autocomplete="family-name"
             />
           </div>
@@ -116,7 +116,7 @@
             bind:value={$formData.phone}
             placeholder="Phone"
             required
-            class="w-full py-2 px-4 border rounded-none"
+            class="w-full py-2 px-4 border border-black/20 rounded-none"
             autocomplete="tel"
           />
 
@@ -126,7 +126,7 @@
             bind:value={$formData.email}
             placeholder="Email"
             required
-            class="w-full py-2 px-4 border rounded-none"
+            class="w-full py-2 px-4 border border-black/20 rounded-none"
             autocomplete="email"
           />
 
@@ -134,7 +134,7 @@
             name="englishLevel"
             bind:value={$formData.englishLevel}
             required
-            class="w-full py-2 px-4 border rounded-none bg-white"
+            class="w-full py-2 px-4 border border-black/20 rounded-none bg-white"
           >
             <option value="">Select English Level</option>
             {#each englishLevels as level}
@@ -146,7 +146,7 @@
             name="interestedIn"
             bind:value={$formData.interestedIn}
             placeholder="What are you interested in?"
-            class="w-full py-2 px-4 border rounded-none h-24"
+            class="w-full py-2 px-4 border border-black/20 rounded-none h-24"
           ></textarea>
 
           <label class="flex gap-3 items-center text-sm">
@@ -169,8 +169,8 @@
           <button
             type="submit"
             disabled={!formValid}
-            class="w-full bg-cpurple-100 text-white py-2 px-4 hover:bg-cpurple-200
-								disabled:bg-cpurple-100/20 disabled:cursor-not-allowed transition-colors"
+            class="w-full bg-cpurple-300 text-white py-2 px-4 hover:bg-cpurple-400
+								disabled:bg-cpurple-300/20 disabled:cursor-not-allowed transition-colors"
           >
             Submit
           </button>
