@@ -1,0 +1,228 @@
+---
+import { Icon } from "astro-icon/components";
+import { getInitialsFromName } from "@/utils";
+
+interface Testimonials {
+  name: string;
+  avatar: string;
+  createdAt: string;
+  note: number;
+  content: string;
+  url: string;
+  appointments?: string[];
+}
+
+const TESTIMONIALS: Testimonials[] = [
+  {
+    name: "Angy Medina",
+    avatar:
+      "https://lh3.googleusercontent.com/a-/ALV-UjU9bRV95-LxXJCr9xfK5kSLMInJP6rB1srjsdjznJr0DZWS8JU=w36-h36-p-rp-mo-br100",
+    createdAt: "2024-05-10",
+    note: 5,
+    content:
+      "Excelente atención, asesoría, y gestión en general. Muy profesionales. Recomendados👌👌",
+    url: "https://g.co/kgs/x8NffsZ",
+  },
+  {
+    name: "Nicolle Ryan",
+    avatar:
+      "https://lh3.googleusercontent.com/a-/ALV-UjVcDy3spFeyNlyHlhK6joGF_GffLOBUwOmEzjYwsL--hK4yl1QY=w36-h36-p-rp-mo-br100",
+    createdAt: "2021-03-01",
+    note: 5,
+    content:
+      "I have personally witnessed WE ARE TOP staff’s passion and hard work put in offering THE best service for their clients. Undoubtedly you should trust them with planning your next adventure to study a new language/undergraduate/post graduate course in one of their finest TOP destinations. They‘ll take care of EVERYTHING you just have to lay back and enjoy the ride!",
+    url: "https://g.co/kgs/pZq5SRS",
+    appointments: ["Quality", "Professionalism", "Value"],
+  },
+  {
+    name: "Santiago camacho",
+    avatar:
+      "https://lh3.googleusercontent.com/a-/ALV-UjVcDy3spFeyNlyHlhK6joGF_GffLOBUwOmEzjYwsL--hK4yl1QY=w36-h36-p-rp-mo-br100",
+    createdAt: "2024-03-01",
+    note: 5,
+    content: "Excelente el servicio",
+    url: "https://g.co/kgs/GUo2Q4f",
+  },
+  {
+    name: "Ricardo Fajardo",
+    avatar: "",
+    createdAt: "2023-03-01",
+    note: 5,
+    content:
+      "It Is so good, they help me all time, in the look for school and accommodation, y traveling, it is an execelent service",
+    url: "https://g.co/kgs/cTefA1e",
+  },
+  {
+    name: "Karoll Sofía",
+    avatar:
+      "https://lh3.googleusercontent.com/a-/ALV-UjV0JpaMHQxF7ehczoO_GTzhotqnjwNkE0iU-CKPJqiiT9H3OHV3Dg=w36-h36-p-rp-mo-br100",
+    createdAt: "2024-03-01",
+    note: 5,
+    content:
+      "Desde el inicio me orientaron en todo, me ayudaron con cada proceso y cuando llegué a la ciudad siguieron ayudándome. Muy buen servicio todo",
+    url: "https://g.co/kgs/a7scRSX",
+  },
+  {
+    name: "pedro laserna",
+    avatar: "",
+    createdAt: "2024-03-01",
+    note: 5,
+    content:
+      "Gracias a We are Top logre cumplir mi sueño de poder estudiar inglés en Australia. Desde que tomé la decisión de viajar me he sentido acompañado por ellos. Me ayudaron a buscar donde quedarme y a encontrar la mejor opción para poder tener la mejor experiencia en el extranjero y poder crecer personalmente.",
+    url: "https://g.co/kgs/UtULdj2",
+  },
+  {
+    name: "Carolina Unigarro",
+    avatar:
+      "https://lh3.googleusercontent.com/a-/ALV-UjX04mF7yBFvbYatCXGsLJRfnY0ulvmmwumYLvxQjDReI5qbrBMRlg=w36-h36-p-rp-mo-ba3-br100",
+    createdAt: "2024-03-01",
+    note: 5,
+    content:
+      "Me inspira confianza, seguridad, empatía, quiero que mi hija viaje con la asesoría y orientación de Diego Rico, confío en su amplia experiencia y sentido de la practicidad para concretar los estudios de mi hija en el exterior. We are Top, súper recomendado, después de conocer otras agencias, los elijo.",
+    url: "https://g.co/kgs/nNH7RDq",
+  },
+  {
+    name: "Luz Stella Galindo R",
+    avatar:
+      "https://lh3.googleusercontent.com/a-/ALV-UjVa3qNBsnx5H9B8VWxjNlGPqw7RkaNT2lpTR3efxdEB8t8v0GJn8Q=w36-h36-p-rp-mo-br100",
+    createdAt: "2024-03-01",
+    note: 5,
+    content:
+      "WeAreTop es una agencia integral, te orientan en cada etapa del proceso de decisión y estudios en el exterior, el servicio es personalizado en cada caso orientando siempre a las mejores opciones en cada país, la mejor decisión no es viajar si no tener el acompañamiento adecuado para que el proceso fluya y se cumpla el objetivo. Gracias por su acompañamiento",
+    url: "https://g.co/kgs/QVXkU2z",
+  },
+];
+---
+
+<section class="container py-20">
+  <header class="show-animation relative text-center">
+    <h2 class="heading-2 font-black">
+      Ellos han vivido una <span class="text-cteal-100">Experiencia</span>
+      <span class="text-cpurple-300">TOP</span>
+    </h2>
+    <span
+      class="text-cpurple-300/10 absolute inset-x-0 -bottom-30 text-[200px] leading-none font-black uppercase"
+      >Testimonials</span
+    >
+  </header>
+
+  <!-- Slider main container -->
+  <div class="swiper-testimonials swiper !pb-14">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper mt-10">
+      <!-- Slides -->
+      {
+        TESTIMONIALS.map((t) => (
+          <div class="swiper-slide min-h-full space-y-2 overflow-hidden rounded-2xl border border-black/10 bg-white px-4 py-6 shadow">
+            <header class="flex items-start justify-between">
+              <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-2">
+                  <img
+                    src={t.avatar}
+                    alt={`Foto de ${t.name}`}
+                    class="size-10 rounded-full"
+                    onerror={`
+                      this.src =
+                        "https://ui-avatars.com/api/?name=${getInitialsFromName(t.name)}&background=random&color=fff"`}
+                  />
+                  <div class="flex shrink-0 flex-col">
+                    <h3 class="font-bold capitalize">{t.name}</h3>
+                    <relative-time
+                      datetime={t.createdAt}
+                      tense="past"
+                      class="text-sm text-black/60"
+                    >
+                      {new Date(t.createdAt).toLocaleDateString()}
+                    </relative-time>
+                  </div>
+                </div>
+
+                <div class="text-2xl text-orange-400">
+                  {Array.from({ length: 5 }, (_, i) =>
+                    i < t.note ? <span>&#9733;</span> : <span>&#9734;</span>,
+                  )}
+                </div>
+              </div>
+
+              <a
+                href={t.url}
+                title="Ver en google"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon name="logos/google" class="size-8" />
+              </a>
+            </header>
+            <footer>
+              <p class="text-black/80">{t.content}</p>
+
+              {t.appointments && (
+                <div class="mt-4">
+                  <h4 class="font-bold">Positive</h4>
+                  <p class="text-black/70">{t.appointments.join(", ")}</p>
+                </div>
+              )}
+            </footer>
+          </div>
+        ))
+      }
+    </div>
+    <!--  Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<style is:global>
+  .swiper-testimonials {
+    .swiper-pagination-bullet-active {
+      background-color: var(--color-cpurple-300);
+    }
+  }
+</style>
+
+<script>
+  import "@github/relative-time-element";
+  import Swiper from "swiper";
+  import "swiper/css";
+  import {
+    Navigation,
+    Pagination,
+    Keyboard,
+    Mousewheel,
+    Autoplay,
+  } from "swiper/modules";
+  import "swiper/css/navigation";
+  import "swiper/css/pagination";
+
+  new Swiper(".swiper-testimonials", {
+    modules: [Navigation, Pagination, Keyboard, Mousewheel, Autoplay],
+    loop: true,
+    direction: "horizontal",
+    autoplay: {
+      delay: 3000,
+      pauseOnMouseEnter: true,
+    },
+
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
+    },
+
+    slidesPerView: "auto",
+    spaceBetween: 16,
+    grabCursor: true,
+    mousewheel: true,
+    keyboard: true,
+    breakpoints: {
+      // Cuando la pantalla es >= 768px
+      768: {
+        slidesPerView: 2,
+      },
+      // Cuando la pantalla es >= 1024px
+      1024: {
+        slidesPerView: 3,
+      },
+    },
+  });
+</script>
