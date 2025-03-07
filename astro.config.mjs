@@ -12,7 +12,6 @@ export default defineConfig({
   site: "https://new.wearetop.co",
   base: "/",
   integrations: [icon(), svelte()],
-
   vite: {
     plugins: [tailwindcss()],
   },
