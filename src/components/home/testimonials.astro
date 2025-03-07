@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import { getInitialsFromName } from "@/utils";
+import { getInitialsFromName, getRandomColor } from "@/utils";
 
 interface Testimonials {
   name: string;
@@ -112,59 +112,92 @@ const TESTIMONIALS: Testimonials[] = [
     <div class="swiper-wrapper mt-10">
       <!-- Slides -->
       {
-        TESTIMONIALS.map((t) => (
-          <div class="swiper-slide min-h-full space-y-2 overflow-hidden rounded-2xl border border-black/10 bg-white px-4 py-6 shadow">
-            <header class="flex items-start justify-between">
-              <div class="flex flex-col gap-2">
-                <div class="flex items-center gap-2">
-                  <img
-                    src={t.avatar}
-                    alt={`Foto de ${t.name}`}
-                    class="size-10 rounded-full"
-                    onerror={`
+        TESTIMONIALS.map((t, index) => {
+          // const words = [
+          //   "GO",
+          //   "LEAD",
+          //   "GROW",
+          //   "DREAM",
+          //   "NEXT",
+          //   "OPEN",
+          //   "EDGE",
+          //   "HOPE",
+          //   "PATH",
+          //   "WISE",
+          //   "GLOW",
+          //   "RISE",
+          //   "VOYAGE",
+          //   "FOCUS",
+          //   "TEAM",
+          // ];
+          const words = ["WE", "ARE", "TOP"];
+          // Obtén la palabra correspondiente al índice actual
+          const word = words[index % words.length];
+          const randomColor = getRandomColor();
+
+          return (
+            <div class="swiper-slide min-h-full space-y-2 overflow-hidden rounded-2xl border border-black/10 bg-white px-4 py-6 shadow">
+              <header class="flex items-start justify-between">
+                <div class="flex flex-col gap-2">
+                  <div class="flex items-center gap-2">
+                    <img
+                      src={t.avatar}
+                      alt={`Foto de ${t.name}`}
+                      class="size-10 rounded-full"
+                      onerror={`
                       this.src =
                         "https://ui-avatars.com/api/?name=${getInitialsFromName(t.name)}&background=random&color=fff"`}
-                  />
-                  <div class="flex shrink-0 flex-col">
-                    <h3 class="font-bold capitalize">{t.name}</h3>
-                    <relative-time
-                      datetime={t.createdAt}
-                      tense="past"
-                      class="text-sm text-black/60"
-                    >
-                      {new Date(t.createdAt).toLocaleDateString()}
-                    </relative-time>
+                    />
+                    <div class="flex shrink-0 flex-col">
+                      <h3 class="font-bold capitalize">{t.name}</h3>
+                      <relative-time
+                        datetime={t.createdAt}
+                        tense="past"
+                        class="text-sm text-black/60"
+                      >
+                        {new Date(t.createdAt).toLocaleDateString()}
+                      </relative-time>
+                    </div>
+                  </div>
+
+                  <div class="text-2xl text-orange-400">
+                    {Array.from({ length: 5 }, (_, i) =>
+                      i < t.note ? <span>&#9733;</span> : <span>&#9734;</span>,
+                    )}
                   </div>
                 </div>
 
-                <div class="text-2xl text-orange-400">
-                  {Array.from({ length: 5 }, (_, i) =>
-                    i < t.note ? <span>&#9733;</span> : <span>&#9734;</span>,
-                  )}
-                </div>
-              </div>
+                <a
+                  href={t.url}
+                  title="Ver en google"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icon name="logos/google" class="size-8" />
+                </a>
+              </header>
+              <footer>
+                <p class="text-black/80">{t.content}</p>
 
-              <a
-                href={t.url}
-                title="Ver en google"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon name="logos/google" class="size-8" />
-              </a>
-            </header>
-            <footer>
-              <p class="text-black/80">{t.content}</p>
+                {t.appointments && (
+                  <div class="mt-4">
+                    <h4 class="font-bold">Positive</h4>
+                    <p class="text-black/70">{t.appointments.join(", ")}</p>
+                  </div>
+                )}
 
-              {t.appointments && (
-                <div class="mt-4">
-                  <h4 class="font-bold">Positive</h4>
-                  <p class="text-black/70">{t.appointments.join(", ")}</p>
-                </div>
-              )}
-            </footer>
-          </div>
-        ))
+                {t.content.length < 300 && (
+                  <span
+                    class="absolute right-0 -bottom-4 -z-1 text-[200px] leading-none font-black uppercase opacity-2.5"
+                    style={{ color: randomColor }}
+                  >
+                    {word}
+                  </span>
+                )}
+              </footer>
+            </div>
+          );
+        })
       }
     </div>
     <!--  Pagination -->
@@ -214,10 +247,12 @@ const TESTIMONIALS: Testimonials[] = [
     grabCursor: true,
     mousewheel: true,
     keyboard: true,
+    autoHeight: true,
     breakpoints: {
       // Cuando la pantalla es >= 768px
       768: {
         slidesPerView: 2,
+        autoHeight: false,
       },
       // Cuando la pantalla es >= 1024px
       1024: {
