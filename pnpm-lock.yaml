@@ -17,6 +17,9 @@ importers:
       '@fontsource/lato':
         specifier: ^5.1.0
         version: 5.1.0
+      '@github/relative-time-element':
+        specifier: ^4.4.5
+        version: 4.4.5
       '@number-flow/svelte':
         specifier: ^0.2.1
         version: 0.2.1(svelte@5.2.10)
@@ -391,6 +394,9 @@ packages:
 
   '@fontsource/lato@5.1.0':
     resolution: {integrity: sha512-wYa/DeUS/WuaJoR/vY+v74W6gtOm98DgoRdSj4FuMXe0E0XYGAEVOgh+DxusJR3EglRZU6ZZDF7vZ881vV1KGA==}
+
+  '@github/relative-time-element@4.4.5':
+    resolution: {integrity: sha512-9ejPtayBDIJfEU8x1fg/w2o5mahHkkp1SC6uObDtoKs4Gn+2a1vNK8XIiNDD8rMeEfpvDjydgSZZ+uk+7N0VsQ==}
 
   '@iconify/tools@4.0.7':
     resolution: {integrity: sha512-zOJxKIfZn96ZRGGvIWzDRLD9vb2CsxjcLuM+QIdvwWbv6SWhm49gECzUnd4d2P0sq9sfodT7yCNobWK8nvavxQ==}
@@ -3073,6 +3079,8 @@ snapshots:
     optional: true
 
   '@fontsource/lato@5.1.0': {}
+
+  '@github/relative-time-element@4.4.5': {}
 
   '@iconify/tools@4.0.7':
     dependencies:
