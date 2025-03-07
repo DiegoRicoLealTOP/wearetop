@@ -12,16 +12,18 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/svelte": "^6.0.2",
-    "@astrojs/tailwind": "^5.1.2",
+    "@astrojs/svelte": "^7.0.5",
     "@fontsource/lato": "^5.1.0",
+    "@github/relative-time-element": "^4.4.5",
     "@number-flow/svelte": "^0.2.1",
-    "astro": "^4.16.8",
+    "@tailwindcss/vite": "^4.0.9",
+    "astro": "^5.4.0",
     "astro-icon": "^1.1.2",
     "cobe": "^0.6.3",
     "svelte": "^5.2.10",
     "svelte-sonner": "^0.3.28",
-    "tailwindcss": "^3.4.14"
+    "swiper": "^11.2.5",
+    "tailwindcss": "^4.0.9"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",

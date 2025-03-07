@@ -1,16 +1,61 @@
-<footer class="bg-black text-white">
-  <section
-    class="container flex flex-col items-center justify-between gap-3 py-5 text-xs"
-  >
-    <p class="order-2 text-center text-xs">
-      &copy; {new Date().getFullYear()} WeAreTop. All rights reserved. Powered by
-      <a
-        class="underline decoration-neutral-500 decoration-dotted underline-offset-[5px] transition-colors duration-150 ease-in hover:text-czyan"
-        href="https://rxtsel.dev"
-        target="_blank"
-      >
-        @rxtsel.</a
-      >
-    </p>
-  </section>
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+---
+
+<footer class="bg-black px-6 py-6 text-white md:px-12 lg:py-20">
+  <div class="container mx-auto">
+    <div class="flex flex-col items-center justify-between md:flex-row">
+      <div class="flex flex-col gap-3">
+        <a href="/">
+          <Icon name="logos/wearetop" class="mx-auto size-30 md:mx-0" />
+        </a>
+
+        <p class="hidden text-xs text-white/60 md:block">
+          © 2024 WeAreTop. All rights reserved. Powered by <a
+            href="https://rxtsel.dev"
+            class="transition-colors hover:text-white"
+            target="_blank">@rxtsel.</a
+          >
+        </p>
+      </div>
+
+      <div class="flex flex-col">
+        <div
+          class="mx-auto grid h-30 grid-cols-2 items-center justify-center gap-6"
+        >
+          <Image
+            src="/images/logos/expatrio.avif"
+            alt="logo"
+            width={100}
+            height={30}
+            class="h-9 w-fit"
+          />
+          <Image
+            src="/images/logos/team-member.avif"
+            alt="logo"
+            width={100}
+            height={30}
+            class="h-9 w-fit"
+          />
+        </div>
+
+        <div class="mx-auto flex gap-3 text-center text-xs text-white/60">
+          <a href="#" class="text-white/60 transition-colors hover:text-white">
+            Política de tratamiento de datos
+          </a>
+          <a href="#" class="text-white/60 transition-colors hover:text-white">
+            Términos y Condiciones
+          </a>
+        </div>
+        <p class="mt-4 text-center text-xs text-white/60 md:hidden">
+          © 2024 WeAreTop. All rights reserved. Powered by <a
+            href="https://rxtsel.dev"
+            class="transition-colors hover:text-white"
+            target="_blank">@rxtsel.</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
 </footer>

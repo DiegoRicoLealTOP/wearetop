@@ -1,11 +1,11 @@
 ---
 import { Icon } from "astro-icon/components";
 import { ROUTES } from "@/lib/constants";
-import { formatText, hasSubMenus } from "@/utils/nav";
+import { formatText, hasSubMenus, formatRouteIcon } from "@/utils/nav";
 ---
 
 <div
-  class="fixed bottom-0 left-0 right-28 top-16 z-50 -translate-x-full transform bg-black transition-transform duration-150"
+  class="fixed top-16 right-28 bottom-0 left-0 z-50 -translate-x-full transform bg-black transition-transform duration-150"
   id="nav-mobile"
 >
   <nav class="relative flex flex-col text-[10px]" id="mobile-nav">
@@ -13,42 +13,42 @@ import { formatText, hasSubMenus } from "@/utils/nav";
       Object.entries(ROUTES.NAV_LINKS).map(([key, value]) =>
         hasSubMenus(value) ? (
           // With submenus
-          <div class="menu-item relative" data-menu-level="1">
+          <div
+            class="menu-item hover:bg-cpurple-200 relative"
+            data-menu-level="1"
+          >
             <span class="flex h-full items-center justify-between px-4 py-4 transition-colors">
               <span class="flex">
                 <Icon
-                  name={`navbar/${formatText(key).toLowerCase()}`}
+                  name={`navbar/${formatRouteIcon(key)}`}
                   class="mr-2 size-2.5 rotate-[-40deg]"
                   aria-hidden="true"
                 />
                 {formatText(key)}
               </span>
 
-              <Icon
-                name="navbar/chevron"
-                class="size-2.5 text-cmutted-foreground"
-              />
+              <Icon name="navbar/chevron" class="size-2.5 text-white/30" />
             </span>
-            <div class="submenu absolute left-5 top-full z-50 hidden min-w-[200px] bg-black shadow-lg">
+            <div class="submenu absolute top-full left-5 z-50 hidden min-w-[200px] bg-black shadow-lg">
               {Object.entries(value).map(([subKey, subValue]) =>
                 hasSubMenus(subValue) ? (
                   <div
-                    class="submenu-item relative border-t border-cmutted-foreground/30"
+                    class="submenu-item relative border-t border-white/30"
                     data-menu-level="2"
                   >
-                    <span class="flex justify-between px-4 py-3 font-semibold transition-colors">
+                    <span class="hover:text-cteal-100 flex justify-between px-4 py-3 font-semibold transition-colors">
                       {formatText(subKey)}
                       <Icon
                         name="navbar/chevron"
-                        class="size-2.5 text-cmutted-foreground"
+                        class="size-2.5 text-white/60"
                       />
                     </span>
-                    <div class="submenu absolute left-full top-0 hidden min-w-max bg-black shadow-lg">
+                    <div class="submenu absolute top-0 left-full hidden min-w-max bg-black shadow-lg">
                       {Object.entries(subValue).map(
                         ([subSubKey, subSubValue]) => (
                           <a
                             href={(ROUTES.WEARETOP + subSubValue) as string}
-                            class="block border-t border-cmutted-foreground/30 px-4 py-3 font-semibold text-cmutted-foreground transition-colors hover:text-white"
+                            class="block border-t border-white/30 px-4 py-3 font-semibold text-white/60 transition-colors hover:text-white"
                             aria-label={formatText(subSubKey)}
                           >
                             {formatText(subSubKey)}
@@ -60,7 +60,7 @@ import { formatText, hasSubMenus } from "@/utils/nav";
                 ) : (
                   <a
                     href={(ROUTES.WEARETOP + subValue) as string}
-                    class="block px-4 py-3 font-semibold hover:text-czyan"
+                    class="hover:text-cteal-100 block px-4 py-3 font-semibold"
                     aria-label={formatText(subValue)}
                   >
                     {formatText(subKey)}
@@ -73,13 +73,10 @@ import { formatText, hasSubMenus } from "@/utils/nav";
           // Normal items
           <a
             href={(ROUTES.WEARETOP + value) as string}
-            class="after-star flex items-center px-4 py-4 transition-colors last-of-type:relative last-of-type:bg-cpurple-100 hover:bg-cpurple-200 [&:first-of-type>svg]:skew-x-[-18deg]"
+            class="after-star last-of-type:bg-cpurple-400 hover:bg-cpurple-200 flex items-center px-4 py-4 transition-colors last-of-type:relative [&:first-of-type>svg]:skew-x-[-18deg]"
             aria-label={formatText(value as string)}
           >
-            <Icon
-              name={`navbar/${formatText(key).toLowerCase()}`}
-              class="mr-2 size-2"
-            />
+            <Icon name={`navbar/${formatRouteIcon(key)}`} class="mr-2 size-2" />
             {formatText(key)}
           </a>
         ),
@@ -95,10 +92,7 @@ import { formatText, hasSubMenus } from "@/utils/nav";
           class="transition-opacity hover:opacity-80"
           target="_blank"
         >
-          <Icon
-            name={`socials/${formatText(key).toLowerCase()}`}
-            class="size-8"
-          />
+          <Icon name={`socials/${formatRouteIcon(key)}`} class="size-8" />
         </a>
       ))
     }
@@ -117,7 +111,7 @@ import { formatText, hasSubMenus } from "@/utils/nav";
         const span = item.querySelector("span");
         if (span) {
           span.classList.remove("bg-cpurple-200"); // Para items de nivel 1
-          span.classList.remove("text-czyan"); // Para subitems
+          span.classList.remove("text-cteal-100"); // Para subitems
         }
       });
       activeMenuItems = [];
@@ -159,7 +153,7 @@ import { formatText, hasSubMenus } from "@/utils/nav";
               const itemSpan = item.querySelector("span");
               if (itemSpan) {
                 itemSpan.classList.remove("bg-cpurple-200");
-                itemSpan.classList.remove("text-czyan");
+                itemSpan.classList.remove("text-cteal-100");
               }
             });
         }
@@ -175,7 +169,7 @@ import { formatText, hasSubMenus } from "@/utils/nav";
           if (level === "1") {
             span.classList.add("bg-cpurple-200");
           } else {
-            span.classList.add("text-czyan");
+            span.classList.add("text-cteal-100");
           }
           activeMenuItems.push(menuItem);
         } else {
@@ -183,7 +177,7 @@ import { formatText, hasSubMenus } from "@/utils/nav";
           if (level === "1") {
             span.classList.remove("bg-cpurple-200");
           } else {
-            span.classList.remove("text-czyan");
+            span.classList.remove("text-cteal-100");
           }
           activeMenuItems = activeMenuItems.filter((item) => item !== menuItem);
         }

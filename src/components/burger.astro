@@ -10,6 +10,8 @@
 </label>
 
 <style is:global>
+  @reference "../styles/global.css"
+
   .hamburger {
     cursor: pointer;
   }
@@ -60,7 +62,12 @@
   }
 
   :has(.check-hamburger:checked) .line {
-    animation: colorActive 150ms both;
+    animation: color-active 150ms both;
+  }
+
+  /* Black topbar on checked */
+  :has(.check-hamburger:checked) #header {
+    @apply bg-black;
   }
 
   /* Black topbar on checked */
@@ -73,9 +80,9 @@
     @apply !overflow-hidden;
   }
 
-  @keyframes colorActive {
+  @keyframes color-active {
     to {
-      @apply stroke-cpurple-100;
+      stroke: var(--color-cpurple-300);
     }
   }
 </style>
