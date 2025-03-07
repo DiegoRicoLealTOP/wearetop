@@ -21,6 +21,7 @@
     "cobe": "^0.6.3",
     "svelte": "^5.2.10",
     "svelte-sonner": "^0.3.28",
+    "swiper": "^11.2.5",
     "tailwindcss": "^4.0.9"
   },
   "devDependencies": {
