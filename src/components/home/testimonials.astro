@@ -101,7 +101,7 @@ const TESTIMONIALS: Testimonials[] = [
       <span class="text-cpurple-300">TOP</span>
     </h2>
     <span
-      class="text-cpurple-300/10 absolute inset-x-0 -bottom-30 text-[200px] leading-none font-black uppercase"
+      class="text-cpurple-300/10 pointer-events-none absolute inset-x-0 -bottom-30 text-[200px] leading-none font-black uppercase"
       >Testimonials</span
     >
   </header>
@@ -113,23 +113,6 @@ const TESTIMONIALS: Testimonials[] = [
       <!-- Slides -->
       {
         TESTIMONIALS.map((t, index) => {
-          // const words = [
-          //   "GO",
-          //   "LEAD",
-          //   "GROW",
-          //   "DREAM",
-          //   "NEXT",
-          //   "OPEN",
-          //   "EDGE",
-          //   "HOPE",
-          //   "PATH",
-          //   "WISE",
-          //   "GLOW",
-          //   "RISE",
-          //   "VOYAGE",
-          //   "FOCUS",
-          //   "TEAM",
-          // ];
           const words = ["WE", "ARE", "TOP"];
           // Obtén la palabra correspondiente al índice actual
           const word = words[index % words.length];
