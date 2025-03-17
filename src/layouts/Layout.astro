@@ -6,6 +6,7 @@ import "@fontsource/lato/700.css";
 import "@fontsource/lato/900.css";
 
 import Head from "@/components/head.astro";
+import BodyMetaTags from "@/components/body-meta-tags.astro";
 import TopBar from "@/components/top-bar.astro";
 import Footer from "@/components/footer.astro";
 import Globals from "@/components/globals.astro";
@@ -27,6 +28,7 @@ const { title } = Astro.props;
     <Head />
   </head>
   <body class="overflow-x-hidden">
+    <BodyMetaTags />
     <TopBar />
     <slot />
     <Globals />
