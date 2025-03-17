@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<div class="timeline bg-black text-white">
+<div class="timeline bg-black text-white" id="scroll-bottom">
   <div class="outro container">
     <section class="content-fluid">
       <Icon name="directional" class="text-cteal-100 mx-auto size-14" />
@@ -81,28 +81,28 @@ import { Icon } from "astro-icon/components";
       }
     }
 
-    .content-fluid h2 span:first-of-type {
-      animation-range: entry 0% entry 16.6%;
-    }
-    .content-fluid h2 span:nth-child(2) {
-      animation-range: entry 16.6% entry 32%;
-    }
-    .content-fluid h2 span:nth-child(3) {
-      animation-range: entry 32% entry 48%;
-    }
-    .content-fluid h2 span:nth-child(4) {
-      animation-range: entry 48% entry 64%;
-    }
-    .content-fluid h2 span:nth-child(5) {
-      animation-range: entry 64% entry 80%;
-    }
-    .content-fluid h2 span:last-of-type {
-      animation-range: entry 80% entry 100%;
-    }
-
-    .content-fluid p {
-      animation-range: entry 88% entry 90.55%;
-    }
+    /* .content-fluid h2 span:first-of-type { */
+    /*   animation-range: entry 0% entry 16.6%; */
+    /* } */
+    /* .content-fluid h2 span:nth-child(2) { */
+    /*   animation-range: entry 16.6% entry 32%; */
+    /* } */
+    /* .content-fluid h2 span:nth-child(3) { */
+    /*   animation-range: entry 32% entry 48%; */
+    /* } */
+    /* .content-fluid h2 span:nth-child(4) { */
+    /*   animation-range: entry 48% entry 64%; */
+    /* } */
+    /* .content-fluid h2 span:nth-child(5) { */
+    /*   animation-range: entry 64% entry 80%; */
+    /* } */
+    /* .content-fluid h2 span:last-of-type { */
+    /*   animation-range: entry 80% entry 100%; */
+    /* } */
+    /**/
+    /* .content-fluid p { */
+    /*   animation-range: entry 88% entry 90.55%; */
+    /* } */
 
     @keyframes reveal {
       to {
@@ -134,7 +134,7 @@ import { Icon } from "astro-icon/components";
     }
 
     .outro section:last-of-type {
-      height: 160vh;
+      height: 0vh;
     }
 
     .content-fluid h2 span {
