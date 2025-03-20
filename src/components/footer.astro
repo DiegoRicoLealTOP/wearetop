@@ -5,56 +5,59 @@ import { Image } from "astro:assets";
 
 <footer class="bg-black px-6 py-6 text-white md:px-12 lg:py-20">
   <div class="container mx-auto">
-    <div class="flex flex-col items-center justify-between md:flex-row">
-      <div class="flex flex-col gap-3">
-        <a href="/">
-          <Icon name="logos/wearetop" class="mx-auto size-30 md:mx-0" />
-        </a>
+    <div class="flex flex-col justify-between md:flex-row">
+      <a href="/" class="mx-auto w-fit md:mx-0">
+        <Icon name="logos/wearetop" class="mx-auto size-30 md:mx-0" />
+      </a>
 
-        <p class="hidden text-xs text-white/60 md:block">
-          © 2024 WeAreTop. All rights reserved. Powered by <a
-            href="https://rxtsel.dev"
-            class="transition-colors hover:text-white"
-            target="_blank">@rxtsel.</a
-          >
-        </p>
+      <div
+        class="flex flex-wrap place-items-end items-center justify-center gap-6"
+      >
+        <Image
+          src="/images/logos/expatrio.avif"
+          alt="logo"
+          width={80}
+          height={30}
+          class="h-7 w-fit"
+          title="Expatrio"
+        />
+        <Image
+          src="/images/logos/team-member.avif"
+          alt="logo"
+          width={80}
+          height={30}
+          class="h-7 w-fit"
+          title="Team Member"
+        />
+        <Image
+          src="/images/logos/nextpay.avif"
+          alt="logo"
+          width={80}
+          height={30}
+          class="h-7 w-fit"
+          title="NextPay"
+        />
+        <Icon name="logos/flywire" class="h-7 w-fit" title="Flywire" />
       </div>
+    </div>
 
-      <div class="flex flex-col">
-        <div
-          class="mx-auto grid h-30 grid-cols-2 items-center justify-center gap-6"
+    <div class="mt-5 flex flex-col items-center justify-between md:flex-row">
+      <p
+        class="order-last mt-4 text-xs text-white/60 md:order-first md:mt-0 md:block"
+      >
+        © 2024 WeAreTop. All rights reserved. Powered by <a
+          href="https://rxtsel.dev"
+          class="transition-colors hover:text-white"
+          target="_blank">@rxtsel.</a
         >
-          <Image
-            src="/images/logos/expatrio.avif"
-            alt="logo"
-            width={100}
-            height={30}
-            class="h-9 w-fit"
-          />
-          <Image
-            src="/images/logos/team-member.avif"
-            alt="logo"
-            width={100}
-            height={30}
-            class="h-9 w-fit"
-          />
-        </div>
-
-        <div class="mx-auto flex gap-3 text-center text-xs text-white/60">
-          <a href="#" class="text-white/60 transition-colors hover:text-white">
-            Política de tratamiento de datos
-          </a>
-          <a href="#" class="text-white/60 transition-colors hover:text-white">
-            Términos y Condiciones
-          </a>
-        </div>
-        <p class="mt-4 text-center text-xs text-white/60 md:hidden">
-          © 2024 WeAreTop. All rights reserved. Powered by <a
-            href="https://rxtsel.dev"
-            class="transition-colors hover:text-white"
-            target="_blank">@rxtsel.</a
-          >
-        </p>
+      </p>
+      <div class="flex gap-5 text-xs">
+        <a href="#" class="text-white/60 transition-colors hover:text-white">
+          Política de tratamiento de datos
+        </a>
+        <a href="#" class="text-white/60 transition-colors hover:text-white">
+          Términos y Condiciones
+        </a>
       </div>
     </div>
   </div>
