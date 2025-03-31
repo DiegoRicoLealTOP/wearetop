@@ -13,37 +13,45 @@ import { Image } from "astro:assets";
       <div
         class="flex flex-wrap place-items-end items-center justify-center gap-6"
       >
-        <Image
-          src="/images/logos/expatrio.avif"
-          alt="logo"
-          width={80}
-          height={30}
-          class="h-7 w-fit"
-          title="Expatrio"
-        />
-        <Image
-          src="/images/logos/team-member.avif"
-          alt="logo"
-          width={80}
-          height={30}
-          class="h-7 w-fit"
-          title="Team Member"
-        />
-        <Image
-          src="/images/logos/nextpay.avif"
-          alt="logo"
-          width={80}
-          height={30}
-          class="h-7 w-fit"
-          title="NextPay"
-        />
-        <Icon name="logos/flywire" class="h-7 w-fit" title="Flywire" />
+        <a href="https://www.expatrio.com/?p=wearetop" target="_blank">
+          <Image
+            src="/images/logos/expatrio.avif"
+            alt="logo"
+            width={80}
+            height={30}
+            class="h-7 w-fit"
+            title="Expatrio"
+          />
+        </a>
+        <a href="https://somosteam.com/" target="_blank">
+          <Image
+            src="/images/logos/team-member.avif"
+            alt="logo"
+            width={80}
+            height={30}
+            class="h-7 w-fit"
+            title="Team Member"
+          />
+        </a>
+        <a href="https://www.nexpay.com.au/" target="_blank">
+          <Image
+            src="/images/logos/nextpay.avif"
+            alt="logo"
+            width={80}
+            height={30}
+            class="h-7 w-fit"
+            title="NextPay"
+          />
+        </a>
+        <a href="https://www.flywire.com/industries/education" target="_blank">
+          <Icon name="logos/flywire" class="h-7 w-fit" title="Flywire" />
+        </a>
       </div>
     </div>
 
     <div class="mt-5 flex flex-col items-center justify-between md:flex-row">
       <p
-        class="order-last mt-4 text-xs text-white/60 md:order-first md:mt-0 md:block"
+        class="order-last mt-4 text-center text-xs text-white/60 md:order-first md:mt-0 md:block md:text-left"
       >
         © 2024 WeAreTop. All rights reserved. Powered by <a
           href="https://rxtsel.dev"
@@ -51,7 +59,9 @@ import { Image } from "astro:assets";
           target="_blank">@rxtsel.</a
         >
       </p>
-      <div class="flex gap-5 text-xs">
+      <div
+        class="md:items-unset flex flex-col items-center gap-5 text-xs md:flex-row"
+      >
         <a href="#" class="text-white/60 transition-colors hover:text-white">
           Política de tratamiento de datos
         </a>
