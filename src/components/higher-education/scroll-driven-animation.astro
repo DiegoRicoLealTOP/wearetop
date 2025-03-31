@@ -1,31 +1,28 @@
-<section class="relative grid place-items-center overflow-clip bg-black">
+<section class="relative grid place-items-center bg-black">
   <h3 class="z-10 text-white">Work Integrated Learning!</h3>
 </section>
 
 <style>
   section {
-    min-height: 300px;
-    --scale: 2;
-    --translate: -32.7%;
     --topbarHeight: 64px;
+    min-height: 300px;
 
     @media (min-width: 768px) {
-      min-height: 75dvh;
+      min-height: 75vh;
     }
     @media (min-width: 1024px) {
-      min-height: calc(100dvh - var(--topbarHeight));
+      min-height: calc(100vh - var(--topbarHeight));
     }
   }
 
   h3 {
-    scale: var(--scale);
-    animation-range: 0 100dvh;
-    animation: shrink both ease-out;
-    animation-timeline: view(block 20% 30%);
-    animation-duration: 3ms; /* Firefox requires this to apply the animation */
+    --scale: 2;
+    --translate: -32.7%;
 
-    --scale: 2.3;
-    --translate: -33%;
+    scale: var(--scale);
+    animation: shrink both 1ms linear;
+    animation-timeline: scroll(root);
+    animation-range: entry 15% 100vh;
 
     @media (min-width: 768px) {
       --scale: 3.3;
@@ -47,7 +44,7 @@
 
   @keyframes shrink {
     to {
-      transform: scale(var(--scale, 1)) translateX(var(--translate));
+      transform: scale(var(--scale)) translateX(var(--translate));
     }
   }
 </style>
