@@ -1,5 +1,5 @@
 export const ROUTES = {
-  WEARETOP: "https://www.wearetop.co",
+  WEARETOP: "https://content.wearetop.co",
   HIGHER_EDUCTACION: "/higher-education",
   NAV_LINKS: {
     PROGRAMAS: "/programas",
