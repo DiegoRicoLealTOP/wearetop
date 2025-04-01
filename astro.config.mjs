@@ -9,7 +9,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://new.wearetop.co",
+  site: "https://wearetop.co",
   base: "/",
   integrations: [icon(), svelte()],
   vite: {
