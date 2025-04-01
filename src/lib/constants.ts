@@ -14,7 +14,7 @@ export const ROUTES = {
         CANADA: "/canada",
       },
       PARA_APRENDER_FRANCES: {
-        FRANCIA: "/francio",
+        FRANCIA: "/francia",
         CANADA: "/canada",
       },
       PARA_APRENDER_ALEMAN: "/para-aprender-aleman",
@@ -28,5 +28,10 @@ export const ROUTES = {
     LINKEDIN: "https://co.linkedin.com/company/we-are-top",
     FACEBOOK: "https://www.facebook.com/wearetop.co",
     YOUTUBE: "https://www.youtube.com/@wearetopco",
+  },
+  FOOTER: {
+    TERMINOS_Y_CONDICIONES: "https://content.wearetop.co/terminosycondiciones",
+    POLITICA_DE_PRIVACIDAD:
+      "https://content.wearetop.co/politica-de-proteccion-de-datos",
   },
 } as const;

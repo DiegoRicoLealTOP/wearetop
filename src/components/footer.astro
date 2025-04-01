@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
+import { ROUTES } from "@/lib/constants";
 ---
 
 <footer class="bg-black px-6 py-6 text-white md:px-12 lg:py-20">
@@ -64,10 +65,16 @@ import { Image } from "astro:assets";
       <div
         class="md:items-unset flex flex-col items-center gap-5 text-xs md:flex-row"
       >
-        <a href="#" class="text-white/60 transition-colors hover:text-white">
+        <a
+          href={ROUTES.FOOTER.POLITICA_DE_PRIVACIDAD}
+          class="text-white/60 transition-colors hover:text-white"
+        >
           Política de tratamiento de datos
         </a>
-        <a href="#" class="text-white/60 transition-colors hover:text-white">
+        <a
+          href={ROUTES.FOOTER.POLITICA_DE_PRIVACIDAD}
+          class="text-white/60 transition-colors hover:text-white"
+        >
           Términos y Condiciones
         </a>
       </div>
