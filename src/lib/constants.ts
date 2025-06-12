@@ -2,7 +2,7 @@ export const ROUTES = {
   WEARETOP: "https://content.wearetop.co",
   HIGHER_EDUCTACION: "/higher-education",
   NAV_LINKS: {
-    PROGRAMAS: "/programas",
+    PROGRAMAS: "/#programas",
     DESTINOS: {
       TODOS: "/destinos",
       ESTUDIA_Y_TRABAJA: {

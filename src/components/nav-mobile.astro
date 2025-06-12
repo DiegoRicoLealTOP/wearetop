@@ -72,7 +72,11 @@ import { formatText, hasSubMenus, formatRouteIcon } from "@/utils/nav";
         ) : (
           // Normal items
           <a
-            href={(ROUTES.WEARETOP + value) as string}
+            href={
+              value === "/#programas"
+                ? value
+                : ((ROUTES.WEARETOP + value) as string)
+            }
             class="after-star last-of-type:bg-cpurple-400 hover:bg-cpurple-200 flex items-center px-4 py-4 transition-colors last-of-type:relative [&:first-of-type>svg]:skew-x-[-18deg]"
             aria-label={formatText(value as string)}
           >
