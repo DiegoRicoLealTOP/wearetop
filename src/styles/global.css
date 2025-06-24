@@ -28,23 +28,16 @@
   --color-cblack-300: #2c2c2c;
   --color-cblack-400: #0a0a0a;
   --color-cblack-500: #000000;
+
+  /* Font Sizes */
+  --text-heading-1: clamp(1.7rem, 3vw, 4rem);
+  --text-heading-2: clamp(1.5rem, 3vw, 3.063rem);
+  --text-heading-3: clamp(1.225rem, 3vw, 1.15rem);
 }
 
 .container {
   margin-inline: auto;
   padding-inline: 1rem;
-}
-
-@layer utilities {
-  .heading-1 {
-    font-size: clamp(1.7rem, 3vw, 4rem);
-  }
-  .heading-2 {
-    font-size: clamp(1.5rem, 3vw, 3.063rem);
-  }
-  .heading-3 {
-    font-size: clamp(1.225rem, 3vw, 1.15rem);
-  }
 }
 
 @layer components {
