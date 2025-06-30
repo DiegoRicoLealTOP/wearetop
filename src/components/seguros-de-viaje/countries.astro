@@ -1,0 +1,152 @@
+<section
+  class="section-1 container mx-auto flex min-h-96 flex-col items-center justify-center gap-10 pt-28 pb-16 lg:min-h-dvh lg:py-0"
+>
+  <p class="text-heading-2 first-text text-center">
+    Tenemos el seguro médico internacional que necesitas para cumplir con los
+    requisitos de tu visa de estudiante o turista, ya sea que viajes a:
+  </p>
+
+  <div
+    class="selector-container relative mx-auto w-full space-y-6 lg:space-y-12"
+  >
+    <ul
+      class="selector text-heading-2 relative min-h-12 overflow-hidden text-center lg:min-h-24"
+    >
+      <li class="li-item absolute top-0 left-0 w-full opacity-0">
+        🇬🇧 Reino Unido
+      </li>
+      <li class="li-item absolute top-0 left-0 w-full opacity-0">
+        🇦🇺 Australia (OSHC)
+      </li>
+      <li class="li-item absolute top-0 left-0 w-full opacity-0">
+        🇳🇿 Nueva Zelanda
+      </li>
+      <li class="li-item absolute top-0 left-0 w-full opacity-0">🇪🇸 España</li>
+      <li class="li-item absolute top-0 left-0 w-full opacity-0">
+        ...o cualquier otro destino.
+      </li>
+    </ul>
+
+    <ul
+      class="insurance flex flex-col justify-center gap-6 text-lg lg:flex-row lg:*:text-2xl"
+    >
+      <li>✅ Seguro para estudiantes internacionales</li>
+      <li>✅ Seguro para turistas</li>
+      <li>
+        ✅ 100% online y aprobado por gobiernos e instituciones educativas
+      </li>
+    </ul>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { SplitText } from "gsap/SplitText";
+
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  // Split text for the first paragraph
+  let splitFirstText = SplitText.create(".first-text", { type: "words" });
+
+  // Split text for each list element
+  let listSplits: SplitText[] = [];
+  const items = gsap.utils.toArray(".li-item");
+
+  items.forEach((item) => {
+    const split = new SplitText(item as Element, { type: "words" });
+    listSplits.push(split);
+  });
+
+  // Get the insurance elements
+  const secureItems = gsap.utils.toArray(".insurance li");
+
+  // Calculate pin duration based on number of elements
+  const itemCount = items.length;
+  const secureItemCount = secureItems.length;
+  // Base scroll for first-text animation
+  const baseScrollHeight = 800; // Reduced for smoother animation
+  // Height per list element
+  const heightPerItem = 600; // Reduced for fluidity
+  // Height for insurance animation
+  const heightForInsure = secureItemCount * 300 + 400; // Reduced for fluidity
+  // Calculate total height
+  const totalPinHeight =
+    baseScrollHeight + heightPerItem * itemCount + heightForInsure;
+
+  // Set all elements initially invisible
+  gsap.set(items, { autoAlpha: 0 });
+  gsap.set(secureItems, { autoAlpha: 0, y: 20 });
+
+  // Master timeline that controls the entire sequence
+  const masterTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".section-1",
+      pin: ".section-1",
+      start: "top top",
+      end: `+=${totalPinHeight}`,
+      scrub: 1,
+      pinSpacing: true,
+      anticipatePin: 1,
+      refreshPriority: 1,
+      id: "masterTimeline",
+      invalidateOnRefresh: true,
+    },
+  });
+
+  // 1. Main text animation
+  masterTl.from(splitFirstText.words, {
+    y: 20,
+    autoAlpha: 0,
+    stagger: 0.05,
+    duration: 3,
+  });
+
+  // 2. Countries animation one by one
+  items.forEach((item, index) => {
+    const words = listSplits[index].words;
+
+    // Show current element
+    masterTl.to(item as Element, {
+      autoAlpha: 1,
+      duration: 0.3,
+      ease: "power2.inOut",
+    });
+
+    // Animate words of current element
+    masterTl.from(words as Element[], {
+      y: 15,
+      autoAlpha: 0,
+      stagger: 0.05,
+      duration: 1.5,
+      ease: "power1.out",
+    });
+
+    // Keep visible for a while
+    masterTl.to({}, { duration: 2 });
+
+    // If not the last element, hide it before showing the next one
+    if (index < items.length - 1) {
+      masterTl.to(item as Element, {
+        autoAlpha: 0,
+        duration: 0.8,
+        ease: "power2.in",
+      });
+    }
+  });
+
+  // 3. Insurance elements animation one by one
+  secureItems.forEach((item, index) => {
+    masterTl.to(item as Element, {
+      autoAlpha: 1,
+      y: 0,
+      duration: 2,
+      ease: "power2.out",
+    });
+
+    // Add a small pause between elements
+    if (index < secureItems.length - 1) {
+      masterTl.to({}, { duration: 0.8 });
+    }
+  });
+</script>
