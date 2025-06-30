@@ -15,6 +15,7 @@
     "@astrojs/svelte": "^7.0.5",
     "@fontsource/lato": "^5.1.0",
     "@github/relative-time-element": "^4.4.5",
+    "@midudev/tailwind-animations": "^0.2.0",
     "@number-flow/svelte": "^0.2.1",
     "@tailwindcss/vite": "^4.0.9",
     "astro": "^5.4.0",
