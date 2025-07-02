@@ -1,7 +1,7 @@
 <section
-  class="section-1 relative z-0 container mx-auto flex min-h-96 flex-col items-center justify-center gap-10 pt-28 pb-16 lg:min-h-dvh lg:py-0"
+  class="section-1 relative z-0 container mx-auto flex flex-col items-center justify-center gap-10 pt-28 pb-16 lg:min-h-dvh"
 >
-  <p class="text-heading-2 first-text text-center">
+  <p class="text-heading-2 first-text text-center animate-slide-up-fade">
     Tenemos el seguro médico internacional que necesitas para cumplir con los
     requisitos de tu visa de estudiante o turista, ya sea que viajes a:
   </p>
@@ -54,23 +54,19 @@
   const items = gsap.utils.toArray(".li-item");
 
   items.forEach((item) => {
-    const split = new SplitText(item as Element, { type: "words" });
+    const split = new SplitText(item as Element, { type: "lines" });
     listSplits.push(split);
   });
 
   // Get the insurance elements
   const secureItems = gsap.utils.toArray(".insurance li");
 
-  // Calculate pin duration based on number of elements
+  // Calcular duraciones
   const itemCount = items.length;
   const secureItemCount = secureItems.length;
-  // Base scroll for first-text animation
-  const baseScrollHeight = 800; // Reduced for smoother animation
-  // Height per list element
-  const heightPerItem = 600; // Reduced for fluidity
-  // Height for insurance animation
-  const heightForInsure = secureItemCount * 300 + 400; // Reduced for fluidity
-  // Calculate total height
+  const baseScrollHeight = 800;
+  const heightPerItem = 600;
+  const heightForInsure = secureItemCount * 300 + 400;
   const totalPinHeight =
     baseScrollHeight + heightPerItem * itemCount + heightForInsure;
 
@@ -78,33 +74,56 @@
   gsap.set(items, { autoAlpha: 0 });
   gsap.set(secureItems, { autoAlpha: 0, y: 20 });
 
-  // Master timeline that controls the entire sequence
-  const masterTl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".section-1",
-      pin: ".section-1",
-      start: "top top",
-      end: `+=${totalPinHeight + 500}`, // Agregar espacio extra para mantener el pin
-      scrub: 1,
-      pinSpacing: true, // Volver a true para mantener el espacio
-      anticipatePin: 1,
-      refreshPriority: 1,
-      id: "masterTimeline",
-      invalidateOnRefresh: true,
-    },
-  });
+  // Detectar si es mobile o desktop
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-  // 1. Main text animation
-  masterTl.from(splitFirstText.words, {
-    y: 20,
-    autoAlpha: 0,
-    stagger: 0.05,
-    duration: 3,
-  });
+  let masterTl;
 
-  // 2. Countries animation one by one
+  if (isMobile) {
+    // Timeline maestro para el resto de animaciones
+    masterTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".section-1",
+        pin: ".section-1",
+        start: "top top",
+        end: `+=${totalPinHeight + 500}`,
+        scrub: 1,
+        pinSpacing: true,
+        anticipatePin: 1,
+        refreshPriority: 1,
+        id: "masterTimeline",
+        invalidateOnRefresh: true,
+      },
+    });
+  } else {
+    // Timeline maestro para desktop, incluyendo la animación de first-text
+    masterTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".section-1",
+        pin: ".section-1",
+        start: "top top",
+        end: `+=${totalPinHeight + 500}`,
+        scrub: 1,
+        pinSpacing: true,
+        anticipatePin: 1,
+        refreshPriority: 1,
+        id: "masterTimeline",
+        invalidateOnRefresh: true,
+      },
+    });
+
+    // Animación de first-text como parte del timeline maestro
+    masterTl.from(splitFirstText.words, {
+      y: 20,
+      autoAlpha: 0,
+      stagger: 0.05,
+      duration: 3,
+    });
+  }
+
+  // Animación de países y seguros (igual para ambos casos)
   items.forEach((item, index) => {
-    const words = listSplits[index].words;
+    const words = listSplits[index].lines;
 
     // Show current element
     masterTl.to(item as Element, {
@@ -135,7 +154,7 @@
     }
   });
 
-  // 3. Insurance elements animation one by one
+  // Insurance elements animation one by one
   secureItems.forEach((item, index) => {
     masterTl.to(item as Element, {
       autoAlpha: 1,
@@ -146,7 +165,11 @@
 
     // If is the last, add more space to the pin
     if (index === secureItems.length - 1) {
-      masterTl.to({}, { duration: 18 });
+      if(isMobile) {
+        masterTl.to({}, { duration: 7 });
+      }else {
+        masterTl.to({}, { duration: 18 });
+      }
     }
 
     // Add a small pause between elements
