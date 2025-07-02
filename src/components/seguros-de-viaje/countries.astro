@@ -1,5 +1,5 @@
 <section
-  class="section-1 container mx-auto flex min-h-96 flex-col items-center justify-center gap-10 pt-28 pb-16 lg:min-h-dvh lg:py-0"
+  class="section-1 container mx-auto flex min-h-96 flex-col items-center justify-center gap-10 pt-28 pb-16 lg:min-h-dvh lg:py-0 relative z-0"
 >
   <p class="text-heading-2 first-text text-center">
     Tenemos el seguro médico internacional que necesitas para cumplir con los
@@ -84,9 +84,9 @@
       trigger: ".section-1",
       pin: ".section-1",
       start: "top top",
-      end: `+=${totalPinHeight}`,
+      end: `+=${totalPinHeight + 500}`, // Agregar espacio extra para mantener el pin
       scrub: 1,
-      pinSpacing: true,
+      pinSpacing: true, // Volver a true para mantener el espacio
       anticipatePin: 1,
       refreshPriority: 1,
       id: "masterTimeline",
@@ -143,6 +143,11 @@
       duration: 2,
       ease: "power2.out",
     });
+
+    // If is the last, add more space to the pin
+    if (index === secureItems.length - 1) {
+      masterTl.to({}, { duration: 18 });
+    }
 
     // Add a small pause between elements
     if (index < secureItems.length - 1) {
