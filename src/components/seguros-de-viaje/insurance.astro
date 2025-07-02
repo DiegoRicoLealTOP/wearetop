@@ -33,7 +33,7 @@ const seguros = [
 ---
 
 <section
-  class="relative z-10 -mt-[100vh] rounded-t-4xl lg:rounded-t-[5rem] xl:rounded-t-[7rem] bg-black py-20 lg:py-50"
+  class="relative z-10 -mt-[100vh] rounded-t-4xl bg-black py-20 lg:rounded-t-[5rem] lg:py-50 xl:rounded-t-[7rem]"
 >
   <div class="container mx-auto px-4">
     <h2 class="mb-20 text-center text-4xl font-bold text-white md:text-6xl">
@@ -56,7 +56,7 @@ const seguros = [
                 <img
                   src={seguro.image}
                   alt={seguro.title}
-                  class="h-full w-full object-cover scale-105 group-hover:scale-100 transition-all duration-500"
+                  class="h-full w-full scale-105 object-cover transition-all duration-500 group-hover:scale-100"
                   loading="lazy"
                 />
               </div>
@@ -70,7 +70,7 @@ const seguros = [
                   <h3 class="mb-0 text-2xl font-bold text-white">
                     {seguro.title}
                   </h3>
-                  <div class="mb-0 shrink-0 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-sm transition-all duration-300 group-hover:border-white/40 group-hover:bg-white/20">
+                  <div class="mb-0 inline-flex shrink-0 items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-sm transition-all duration-300 group-hover:border-white/40 group-hover:bg-white/20">
                     <span class="text-sm font-medium text-white">Ver más</span>
                     <svg
                       class="h-4 w-4 text-white transition-transform duration-300 group-hover:translate-x-1"
