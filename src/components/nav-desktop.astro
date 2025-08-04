@@ -59,7 +59,9 @@ import { formatText, hasSubMenus, formatRouteIcon } from "@/utils/nav";
           href={
             value === "/#programas"
               ? value
-              : ((ROUTES.WEARETOP + value) as string)
+              : value === "/seguros-de-viaje"
+                ? value
+                : ((ROUTES.WEARETOP + value) as string)
           }
           class="after-star last-of-type:bg-cpurple-300 hover:bg-cpurple-200 flex items-center px-4 py-10 transition-colors last-of-type:relative [&:first-of-type>svg]:skew-x-[-18deg]"
         >
