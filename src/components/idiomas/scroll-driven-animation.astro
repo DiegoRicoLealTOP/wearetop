@@ -69,8 +69,10 @@
       );
     } catch (error) {
       // Si la importación o la animación fallan, degradamos la experiencia de forma elegante
-      console.error("No se pudo cargar ScrollTrigger para la animación de scroll:", error);
-      // Opcional: podrías mostrar un mensaje al usuario o simplemente dejar la sección sin animación
+      console.error(
+        "No se pudo cargar ScrollTrigger para la animación de scroll:",
+        error,
+      );
     }
   })();
 </script>
