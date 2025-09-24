@@ -1,0 +1,250 @@
+---
+const LIST = {
+  english: [
+    {
+      label: "Australia",
+      url: "#",
+      external: false,
+    },
+    {
+      label: "New Zealand",
+      url: "#",
+      external: false,
+    },
+    {
+      label: "United Kingdom",
+      url: "#",
+      external: false,
+    },
+    {
+      label: "Canada",
+      url: "#",
+      external: false,
+    },
+    {
+      label: "Dubai",
+      url: "#",
+      external: false,
+    },
+    {
+      label: "Malta",
+      url: "#",
+      external: false,
+    },
+    {
+      label: "Ireland",
+      url: "#",
+      external: false,
+    },
+    {
+      label: "South Africa",
+      url: "#",
+      external: false,
+    },
+    {
+      label: "India",
+      url: "#",
+      external: false,
+    },
+  ],
+  french: [
+    {
+      label: "Francia",
+      url: "#",
+      external: false,
+    },
+    {
+      label: "Suiza",
+      url: "#",
+      external: false,
+    },
+    {
+      label: "Canada",
+      url: "#",
+      external: false,
+    },
+  ],
+  germany: [
+    {
+      label: "Alemania",
+      url: "#",
+      external: false,
+    },
+  ],
+  portugal: [
+    {
+      label: "Brasil",
+      url: "#",
+      external: false,
+    },
+    {
+      label: "Portugal",
+      url: "#",
+      external: false,
+    },
+  ],
+  italian: [
+    {
+      label: "Italia",
+      url: "#",
+      external: false,
+    },
+  ],
+};
+---
+
+<section class="container py-12 md:py-24" id="destinos">
+  <header class="show-animation relative z-1 text-center">
+    <h2 class="text-heading-2 font-black">Destinos</h2>
+    <span
+      class="text-cteal-100/10 pointer-events-none absolute inset-x-0 -bottom-11 text-[50px] leading-none font-black uppercase sm:text-[60px] lg:-bottom-30 lg:text-[200px]"
+      >Destinos</span
+    >
+  </header>
+
+  <ul
+    class="relative z-2 mx-auto mt-10 grid w-full grid-cols-1 place-content-center gap-x-20 gap-y-6 bg-white lg:grid-cols-[auto_auto]"
+  >
+    <li>
+      <h3 class="text-cteal-100 mb-6 text-2xl font-bold md:text-4xl">
+        Para aprender inglés
+      </h3>
+      <ol class="space-y-2">
+        {
+          LIST.english.map(({ label, url, external }) => (
+            <li>
+              <a
+                href={url}
+                target={external ? "_blank" : "_self"}
+                rel={external ? "noopener noreferrer" : undefined}
+                class="group flex w-fit items-center gap-x-2 text-lg md:text-xl"
+              >
+                <span class="text-cpurple-200">&check;</span>
+                <span class="border-cpurple-200 flex items-center gap-x-2 border-b border-dotted">
+                  {label}
+                  <span class="group-hover:text-cpurple-200 text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                    &#8599;
+                  </span>
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </li>
+
+    <li class="space-y-6">
+      <div>
+        <h3 class="text-cteal-100 mb-6 text-2xl font-bold md:text-4xl">
+          Para aprender francés
+        </h3>
+        <ol class="space-y-2">
+          {
+            LIST.french.map(({ label, url, external }) => (
+              <li>
+                <a
+                  href={url}
+                  target={external ? "_blank" : "_self"}
+                  rel={external ? "noopener noreferrer" : undefined}
+                  class="group flex w-fit items-center gap-x-2 text-lg md:text-xl"
+                >
+                  <span class="text-cpurple-200">&check;</span>
+                  <span class="border-cpurple-200 flex items-center gap-x-2 border-b border-dotted">
+                    {label}
+                    <span class="group-hover:text-cpurple-200 text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                      &#8599;
+                    </span>
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+
+      <div>
+        <h3 class="text-cteal-100 mb-6 text-2xl font-bold md:text-4xl">
+          Para aprender alemán
+        </h3>
+        <ol class="space-y-2">
+          {
+            LIST.germany.map(({ label, url, external }) => (
+              <li>
+                <a
+                  href={url}
+                  target={external ? "_blank" : "_self"}
+                  rel={external ? "noopener noreferrer" : undefined}
+                  class="group flex w-fit items-center gap-x-2 text-lg md:text-xl"
+                >
+                  <span class="text-cpurple-200">&check;</span>
+                  <span class="border-cpurple-200 flex items-center gap-x-2 border-b border-dotted">
+                    {label}
+                    <span class="group-hover:text-cpurple-200 text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                      &#8599;
+                    </span>
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+
+      <div>
+        <h3 class="text-cteal-100 mb-6 text-2xl font-bold md:text-4xl">
+          Para aprender portugués
+        </h3>
+        <ol class="space-y-2">
+          {
+            LIST.portugal.map(({ label, url, external }) => (
+              <li>
+                <a
+                  href={url}
+                  target={external ? "_blank" : "_self"}
+                  rel={external ? "noopener noreferrer" : undefined}
+                  class="group flex w-fit items-center gap-x-2 text-lg md:text-xl"
+                >
+                  <span class="text-cpurple-200">&check;</span>
+                  <span class="border-cpurple-200 flex items-center gap-x-2 border-b border-dotted">
+                    {label}
+                    <span class="group-hover:text-cpurple-200 text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                      &#8599;
+                    </span>
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+
+      <div>
+        <h3 class="text-cteal-100 mb-6 text-2xl font-bold md:text-4xl">
+          Para aprender italiano
+        </h3>
+        <ol class="space-y-2">
+          {
+            LIST.italian.map(({ label, url, external }) => (
+              <li>
+                <a
+                  href={url}
+                  target={external ? "_blank" : "_self"}
+                  rel={external ? "noopener noreferrer" : undefined}
+                  class="group flex w-fit items-center gap-x-2 text-lg md:text-xl"
+                >
+                  <span class="text-cpurple-200">&check;</span>
+                  <span class="border-cpurple-200 flex items-center gap-x-2 border-b border-dotted">
+                    {label}
+                    <span class="group-hover:text-cpurple-200 text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                      &#8599;
+                    </span>
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </li>
+  </ul>
+</section>

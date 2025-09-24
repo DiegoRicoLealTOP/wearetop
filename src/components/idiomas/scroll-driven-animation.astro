@@ -1,0 +1,74 @@
+<div class="min-h-[300vh] bg-black text-white">
+  <div class="relative">
+    <section
+      id="sticky-section"
+      class="sticky top-0 z-10 flex h-screen flex-col items-center justify-center"
+    >
+      <h2
+        class="mx-auto text-center text-5xl leading-none font-black text-balance opacity-15 lg:text-6xl xl:text-7xl 2xl:text-9xl"
+        id="headline"
+      >
+        ¡Te ayudamos a elegir el curso y el destino perfecto para ti!
+      </h2>
+      <p
+        id="description"
+        class="text-cpurple-300 mx-auto mt-10 text-center text-5xl font-black opacity-25 md:container lg:text-6xl xl:text-7xl 2xl:text-9xl"
+      >
+        Consultoría real, cero fórmulas genéricas.
+      </p>
+    </section>
+
+    <div id="animation-trigger" class="h-screen"></div>
+  </div>
+</div>
+
+<script
+  src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"
+  is:inline></script>
+<script>
+  import { gsap } from "gsap";
+  // Aseguramos que GSAP y ScrollTrigger estén disponibles globalmente
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Creamos un ScrollTrigger para "atascar" la sección mientras se hace scroll
+  ScrollTrigger.create({
+    trigger: "#animation-trigger", // El trigger es la altura del siguiente div
+    start: "top bottom", // Comienza cuando la parte superior del trigger toca la parte inferior de la ventana
+    end: "bottom top", // Termina cuando la parte inferior del trigger toca la parte superior de la ventana
+    pin: "#sticky-section", // Mantenemos fija esta sección
+    pinSpacing: false, // Evita que GSAP añada espacio adicional
+  });
+
+  // Ahora creamos un timeline para las animaciones dentro de la sección fija
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#animation-trigger",
+      start: "top bottom", // Comienza en el mismo punto que el pin
+      end: "bottom top", // Termina en el mismo punto que el pin
+      scrub: 0.5, // Hace que la animación sea suave al hacer scroll
+    },
+  });
+
+  // Animación secuencial de cada palabra
+  const word = document.querySelector("h2");
+  tl.to(
+    word,
+    {
+      opacity: 1,
+      duration: 1,
+      ease: "power2.out",
+    },
+    0.3,
+  );
+
+  // Animación del párrafo y el icono
+  tl.to(
+    "#description",
+    {
+      opacity: 1,
+      duration: 1,
+      ease: "power2.out",
+    },
+    ">",
+  );
+</script>
