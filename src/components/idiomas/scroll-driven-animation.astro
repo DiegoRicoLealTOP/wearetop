@@ -1,50 +1,34 @@
----
-import { Icon } from "astro-icon/components";
----
-
 <div class="min-h-[300vh] bg-black text-white">
   <div class="relative">
-    <!-- Esta sección se mantendrá "atascada" mientras se hace scroll -->
     <section
       id="sticky-section"
       class="sticky top-0 z-10 flex h-screen flex-col items-center justify-center"
     >
-      <div id="icon-container" class="mb-4 opacity-15">
-        <Icon name="directional" class="text-cteal-100 mx-auto h-14 w-14" />
-      </div>
       <h2
-        class="text-center text-5xl leading-tight font-black md:text-6xl lg:text-7xl"
+        class="mx-auto text-center text-5xl leading-none font-black text-balance opacity-15 lg:text-6xl xl:text-7xl 2xl:text-9xl"
+        id="headline"
       >
-        <span class="inline-block opacity-15">Your </span>
-        <span class="inline-block opacity-15">journey </span>
-        <span class="inline-block opacity-15">to </span>
-        <span class="inline-block opacity-15">Happiness, </span>
-        <span class="inline-block opacity-15">begins </span>
-        <span class="inline-block opacity-15">Here!</span>
+        ¡Te ayudamos a elegir el curso y el destino perfecto para ti!
       </h2>
       <p
         id="description"
-        class="text-cpurple-300 mx-auto mt-4 max-w-3xl text-center text-xl opacity-25 md:text-2xl"
+        class="text-cpurple-300 mx-auto mt-10 text-center text-5xl font-black opacity-25 md:container lg:text-6xl xl:text-7xl 2xl:text-9xl"
       >
-        Aprende un idioma o estudia lo que más te gusta, mientras vives la mejor
-        experiencia de tu vida.
+        Consultoría real, cero fórmulas genéricas.
       </p>
     </section>
 
-    <!-- Este div actúa como trigger para la animación y determina el rango del scroll -->
     <div id="animation-trigger" class="h-screen"></div>
   </div>
 </div>
 
 <script>
   import { gsap } from "gsap";
-  // Aseguramos que GSAP y ScrollTrigger estén disponibles globalmente
   // Cargamos ScrollTrigger dinámicamente para evitar bloquear el renderizado
   (async () => {
     try {
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);
-
       // Creamos un ScrollTrigger para "atascar" la sección mientras se hace scroll
       ScrollTrigger.create({
         trigger: "#animation-trigger", // El trigger es la altura del siguiente div
@@ -53,7 +37,6 @@ import { Icon } from "astro-icon/components";
         pin: "#sticky-section", // Mantenemos fija esta sección
         pinSpacing: false, // Evita que GSAP añada espacio adicional
       });
-
       // Ahora creamos un timeline para las animaciones dentro de la sección fija
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -63,42 +46,26 @@ import { Icon } from "astro-icon/components";
           scrub: 0.5, // Hace que la animación sea suave al hacer scroll
         },
       });
-
       // Animación secuencial de cada palabra
-      const words = document.querySelectorAll("h2 span");
-      const duration = 1 / words.length;
-
-      words.forEach((word, index) => {
-        tl.to(
-          word,
-          {
-            opacity: 1,
-            duration: duration,
-            ease: "power2.out",
-          },
-          0.3 + index * duration,
-        );
-      });
-
+      const word = document.querySelector("h2");
+      tl.to(
+        word,
+        {
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+        },
+        0.3,
+      );
       // Animación del párrafo y el icono
       tl.to(
         "#description",
         {
           opacity: 1,
-          duration: 0.2,
+          duration: 1,
           ease: "power2.out",
         },
-        1.2,
-      );
-
-      tl.to(
-        "#icon-container",
-        {
-          opacity: 1,
-          duration: 0.2,
-          ease: "power2.out",
-        },
-        0.2,
+        ">",
       );
     } catch (error) {
       // Si la importación o la animación fallan, degradamos la experiencia de forma elegante

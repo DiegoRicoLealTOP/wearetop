@@ -1,0 +1,54 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section
+  class="dotted-overlay flex min-h-screen flex-col justify-center bg-black after:absolute after:inset-0 after:bg-black/30"
+>
+  <picture>
+    <source srcset="/images/idiomas/hero.webp" type="image/webp" />
+    <source srcset="/images/idiomas/hero.avif" type="image/avif" />
+    <img
+      class="absolute inset-0 mx-auto h-screen w-full object-cover object-top"
+      src="/images/idiomas/hero.webp"
+    />
+  </picture>
+
+  <div class="relative z-10 container flex justify-center text-center">
+    <div
+      class="flex flex-col items-center justify-center space-y-4 text-center"
+    >
+      <h1
+        class="animate-blurred-fade-in text-heading-1 gap-1 leading-none font-black text-white"
+      >
+        Aprender idiomas en el extranjero es vivir una
+        <b class="text-cteal-100">experiencia que te transforma</b>
+      </h1>
+      <p
+        class="animate-blurred-fade-in animate-delay-100 max-w-4xl text-xs text-white min-sm:block sm:text-sm md:text-base min-lg:text-2xl"
+      >
+        Estudia en destinos increíbles, conoce personas de todo el mundo y
+        potencia tu crecimiento personal y profesional. Haz que tu aprendizaje
+        sea tan inolvidable como tu viaje
+      </p>
+
+      <a
+        href="https://api.whatsapp.com/send?phone=573183795288&text=%C2%A1Hola!%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20%F0%9F%98%84"
+        rel="noopener noreferrer"
+        target="_blank"
+        class="bg-cpurple-200 hover:bg-cpurple-300 animate-blurred-fade-in animate-delay-150 mx-auto mt-5 mb-10 inline-block w-fit px-8 py-3 text-sm font-semibold text-white transition min-sm:text-base"
+      >
+        Hablemos ahora
+      </a>
+    </div>
+  </div>
+
+  <a
+    role="button"
+    href="#destinos"
+    class="animate-bouncing animate-iteration-count-infinite absolute inset-x-0 bottom-0 z-10 mx-auto hidden w-fit px-4 py-2 font-semibold lg:block lg:scale-110 2xl:scale-125"
+    aria-label="Scroll down"
+  >
+    <Icon name="mouse" class="size-6 text-white lg:size-10" />
+  </a>
+</section>
