@@ -41,6 +41,16 @@ const UNIVERSITIES = [
     description:
       "Descubre UE Business School, una de las principales escuelas de negocios de Europa.\n\n<strong>Fórmate en management, finanzas y marketing internacional</strong> en sus campus de Barcelona, Ginebra y Múnich.",
   },
+  {
+    id: "cambridge-school-of-visual-and-performing-arts",
+    name: "Cambridge School of Visual & Performing Arts ",
+    cover:
+      "/images/universidades/cambridge-school-of-visual-and-performing-arts.webp",
+    website: "https://www.csvpa.com/",
+    external: true,
+    description:
+      "Educación, excelencia e innovación en el corazón de Cambridge.\n\nCambridge School of Visual & Performing Arts (CSVPA) es una reconocida escuela de arte, diseño y artes escénicas con campus en Cambridge y Londres. Ofrece programas de Foundation, Diploma, pregrado y posgrado en Arte y Diseño, Moda, Música y Artes Escénicas, combinando creatividad, práctica profesional y excelencia académica.",
+  },
 ];
 ---
 
@@ -145,14 +155,14 @@ const UNIVERSITIES = [
             </div>
           </header>
 
-          <footer class="py-6">
-            <h3 class="text-cblack-300 mb-3 text-xl font-bold sm:text-2xl">
+          <footer class="pt-4">
+            <h3 class="text-cblack-300 mb-3 text-xl font-semibold sm:text-xl">
               {u.name}
             </h3>
 
             {/* Description*/}
             <p
-              class="text-cblack-100 text-sm whitespace-pre-line lg:text-lg"
+              class="text-cblack-100 text-sm whitespace-pre-line lg:text-base"
               set:html={u.description || ""}
             />
           </footer>
