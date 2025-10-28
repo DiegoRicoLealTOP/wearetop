@@ -2,6 +2,7 @@
 import IcmsLogo from "@/icons/logos/icms-sydney.svg";
 import UEuropeaDeMadridLogo from "@/icons/logos/u-europea-de-madrid.svg";
 import EuBusinessSchoolLogo from "@/icons/logos/eu-business-school.svg";
+import CsvpaLogo from "@/icons/logos/csvpa.svg";
 import { Image } from "astro:assets";
 
 const UNIVERSITIES = [
@@ -109,6 +110,13 @@ const UNIVERSITIES = [
 
             {u.id === "ue-business-school" && (
               <EuBusinessSchoolLogo
+                height={40}
+                class="absolute top-2 left-2 z-10 h-8 text-white sm:top-6 sm:left-6 sm:h-10"
+              />
+            )}
+
+            {u.id === "cambridge-school-of-visual-and-performing-arts" && (
+              <CsvpaLogo
                 height={40}
                 class="absolute top-2 left-2 z-10 h-8 text-white sm:top-6 sm:left-6 sm:h-10"
               />
