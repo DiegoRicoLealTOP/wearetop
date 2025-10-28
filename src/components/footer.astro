@@ -7,14 +7,18 @@ import { ROUTES } from "@/lib/constants";
 <footer class="bg-black px-6 py-6 text-white md:px-12 lg:py-20">
   <div class="container mx-auto">
     <div class="flex flex-col justify-between md:flex-row">
-      <a href="/" class="mx-auto w-fit md:mx-0">
+      <a href="/" class="mx-auto w-fit md:mx-0" aria-label="WeAreTop Home">
         <Icon name="logos/wearetop" class="mx-auto size-30 md:mx-0" />
       </a>
 
       <div
         class="flex flex-wrap place-items-end items-center justify-center gap-6"
       >
-        <a href="https://www.expatrio.com/?p=wearetop" target="_blank">
+        <a
+          href="https://www.expatrio.com/?p=wearetop"
+          target="_blank"
+          aria-label="Expatrio"
+        >
           <Image
             src="/images/logos/expatrio.avif"
             alt="logo"
@@ -24,7 +28,11 @@ import { ROUTES } from "@/lib/constants";
             title="Expatrio"
           />
         </a>
-        <a href="https://somosteam.com/" target="_blank">
+        <a
+          href="https://somosteam.com/"
+          target="_blank"
+          aria-label="Team Member"
+        >
           <Image
             src="/images/logos/team-member.avif"
             alt="logo"
@@ -34,7 +42,11 @@ import { ROUTES } from "@/lib/constants";
             title="Team Member"
           />
         </a>
-        <a href="https://www.nexpay.com.au/" target="_blank">
+        <a
+          href="https://www.nexpay.com.au/"
+          target="_blank"
+          aria-label="NextPay"
+        >
           <Image
             src="/images/logos/nextpay.avif"
             alt="logo"
@@ -50,13 +62,16 @@ import { ROUTES } from "@/lib/constants";
       </div>
     </div>
 
-    <div class="mt-5 flex flex-col items-center justify-between md:flex-row">
+    <div
+      class="mt-5 flex flex-col items-center justify-between md:flex-row"
+      aria-label="Footer Legal Links"
+    >
       <p
         class="order-last mt-4 text-center text-xs text-white/60 md:order-first md:mt-0 md:block md:text-left"
       >
         © 2024 WeAreTop. All rights reserved. <span class="block lg:inline"
           >Powered by <a
-            href="https://rxtsel.dev"
+            href="https://rxtsel.dev/?utm_source=wearetop&utm_medium=footer"
             class="transition-colors hover:text-white"
             target="_blank">@rxtsel.</a
           ></span

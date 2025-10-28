@@ -1,17 +1,20 @@
-<main class="relative grid min-h-[60dvh] place-items-center lg:min-h-dvh">
-  <div
-    class="absolute -z-1 h-[60dvh] w-full after:absolute after:inset-0 after:z-10 after:bg-black/30 lg:h-dvh"
-  >
-    <img
-      src="/images/seguros-de-viaje-hero.avif"
-      height="1080"
-      width="1920"
-      alt="Seguro de Viaje"
-      class="h-full w-full object-cover"
-    />
-  </div>
+---
+import { Image } from "astro:assets";
+---
 
-  <header class="container space-y-4 text-center text-white">
+<main
+  class="dotted-overlay relative flex min-h-screen flex-col justify-center overflow-hidden bg-black after:absolute after:inset-0 after:bg-black/30"
+>
+  <Image
+    src="/images/seguros-de-viaje-hero.avif"
+    height="1080"
+    width="1920"
+    alt="Seguro de Viaje"
+    class="absolute inset-0 mx-auto h-screen w-screen object-cover object-top"
+    loading="eager"
+  />
+
+  <header class="z-10 container space-y-4 text-center text-white">
     <h1
       class="text-heading-1 animate-slide-up-fade z-20 flex flex-col gap-1 leading-none font-black text-white"
     >

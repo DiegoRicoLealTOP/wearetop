@@ -1,0 +1,181 @@
+---
+import IcmsLogo from "@/icons/logos/icms-sydney.svg";
+import UEuropeaDeMadridLogo from "@/icons/logos/u-europea-de-madrid.svg";
+import EuBusinessSchoolLogo from "@/icons/logos/eu-business-school.svg";
+import CsvpaLogo from "@/icons/logos/csvpa.svg";
+import { Image } from "astro:assets";
+
+const UNIVERSITIES = [
+  {
+    id: "icms-sydney",
+    name: "ICMS Sydney",
+    cover: "/images/universidades/icms-sidney.webp",
+    website: "/universidades/icms-sydney",
+    external: false,
+    description:
+      "<strong>Estudia en ICMS Sydney</strong>, una de las principales escuelas de negocios de Australia.\n\nPrepárate para liderar en <strong>hospitality, management y emprendimiento global</strong>, aprendiendo con expertos de la industria.",
+  },
+  {
+    id: "u-europea-de-madrid",
+    name: "Universidad Europea de Madrid",
+    cover: "/images/universidades/u-europea-de-madrid.webp",
+    website: "https://universidadeuropea.com/",
+    external: true,
+    description:
+      "<strong>Conoce la Universidad Europea</strong>, líder en innovación educativa en España.\n\nEstudia <strong>grados y másteres internacionales</strong> con un enfoque práctico, global y conectado al mundo profesional.",
+  },
+  {
+    id: "escuela-u-real-madrid",
+    name: "Escuela Universitaria Real Madrid ",
+    cover: "/images/universidades/escuela-u-real-madrid.webp",
+    website: "https://colombia.universidadeuropea.com/conocenos/real-madrid/",
+    external: true,
+    description:
+      "<strong>Conoce los Másteres de la Escuela Universitaria Real Madrid</strong>.\n\nEspecialízate en gestión, marketing o entrenamiento deportivo junto a <strong>profesionales y deportistas de élite</strong> del Real Madrid.",
+  },
+  {
+    id: "ue-business-school",
+    name: "UE Business School",
+    cover: "/images/universidades/eu-business-school.webp",
+    website: "https://www.euruni.edu/",
+    external: true,
+    description:
+      "Descubre UE Business School, una de las principales escuelas de negocios de Europa.\n\n<strong>Fórmate en management, finanzas y marketing internacional</strong> en sus campus de Barcelona, Ginebra y Múnich.",
+  },
+  {
+    id: "cambridge-school-of-visual-and-performing-arts",
+    name: "Cambridge School of Visual & Performing Arts ",
+    cover:
+      "/images/universidades/cambridge-school-of-visual-and-performing-arts.webp",
+    website: "https://www.csvpa.com/",
+    external: true,
+    description:
+      "CSVPA es una reconocida escuela de arte, diseño y artes escénicas con campus en Cambridge y Londres. Ofrece programas de Foundation, Diploma, pregrado y posgrado en Arte y Diseño, Moda, Música y Artes Escénicas, combinando creatividad, práctica profesional y excelencia académica.",
+  },
+];
+---
+
+<section class="container py-12 md:py-24" id="universidades">
+  <header class="show-animation relative z-1 text-center">
+    <h2 class="text-heading-2 font-black text-pretty">
+      👇 Descubre algunas de las <span class="text-cteal-100"
+        >universidades</span
+      >
+      <span class="text-cpurple-200">TOP</span> con las que trabajamos.
+    </h2>
+    <span
+      class="text-cteal-100/10 pointer-events-none absolute inset-x-0 -bottom-11 text-[50px] leading-none font-black uppercase sm:text-[60px] lg:-bottom-30 lg:text-[200px]"
+      >universidades</span
+    >
+  </header>
+
+  <div
+    class="container mx-auto mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3"
+  >
+    {
+      UNIVERSITIES.map((u, index) => (
+        <a
+          href={u.website}
+          class="group insurance-card z-10 block overflow-hidden rounded-2xl border border-white/5 bg-gradient-to-br from-white/5 to-white/5 backdrop-blur-2xl transition-all duration-500"
+          data-index={index}
+          {...(u.external
+            ? { target: "_blank", rel: "noopener noreferrer" }
+            : {})}
+          rel="noopener noreferrer"
+        >
+          <header class="relative h-52 overflow-hidden rounded-2xl md:h-60 lg:h-80">
+            {u.id === "icms-sydney" && (
+              <IcmsLogo
+                height={40}
+                class="absolute top-2 left-2 z-10 h-8 text-white sm:top-6 sm:left-6 sm:h-10"
+              />
+            )}
+
+            {u.id === "u-europea-de-madrid" && (
+              <UEuropeaDeMadridLogo
+                height={40}
+                class="absolute top-2 left-2 z-10 h-8 text-white sm:top-6 sm:left-6 sm:h-10"
+              />
+            )}
+
+            {u.id === "escuela-u-real-madrid" && (
+              <Image
+                src="/images/universidades/ue-real-madrid.jpg"
+                alt="Escuela Universitaria Real Madrid Logo"
+                height={10}
+                width={200}
+                class="absolute top-2 left-2 z-10 h-8 w-auto sm:top-6 sm:left-6 sm:h-10"
+              />
+            )}
+
+            {u.id === "ue-business-school" && (
+              <EuBusinessSchoolLogo
+                height={40}
+                class="absolute top-2 left-2 z-10 h-8 text-white sm:top-6 sm:left-6 sm:h-10"
+              />
+            )}
+
+            {u.id === "cambridge-school-of-visual-and-performing-arts" && (
+              <CsvpaLogo
+                height={40}
+                class="absolute top-2 left-2 z-10 h-8 text-white sm:top-6 sm:left-6 sm:h-10"
+              />
+            )}
+
+            <picture>
+              <source srcset={u.cover} type="image/webp" />
+              <source
+                srcset={u.cover.replace(".webp", ".avif")}
+                type="image/avif"
+              />
+
+              <Image
+                src={u.cover}
+                alt={`Logo of ${u.name}`}
+                class="h-full w-full scale-105 object-cover transition-all duration-500 group-hover:scale-100"
+                loading="lazy"
+                width={400}
+                height={300}
+              />
+            </picture>
+
+            {/* Bright effect on hover*/}
+            <div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+
+            {/* Button simulated*/}
+            <div class="absolute bottom-2 left-2 flex w-fit items-center gap-2 rounded-full border border-black/10 bg-black/40 px-4 py-2 backdrop-blur-sm transition-all duration-300 group-hover:border-white/25 group-hover:bg-black/90 md:bottom-6 md:left-6 lg:right-6 lg:left-auto">
+              <span class="text-sm font-medium text-white">
+                Explora esta universidad
+              </span>
+              <svg
+                class="h-4 w-4 text-white transition-transform duration-300 group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </div>
+          </header>
+
+          <footer class="pt-4">
+            <h3 class="text-cblack-300 mb-3 text-xl font-semibold sm:text-xl">
+              {u.name}
+            </h3>
+
+            {/* Description*/}
+            <p
+              class="text-cblack-100 text-sm whitespace-pre-line lg:text-base"
+              set:html={u.description || ""}
+            />
+          </footer>
+        </a>
+      ))
+    }
+  </div>
+</section>
