@@ -1,0 +1,63 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section
+  class="dotted-overlay relative flex min-h-screen flex-col justify-center overflow-hidden bg-black after:absolute after:inset-0 after:bg-black/30"
+>
+  <picture>
+    <source
+      srcset="/images/boarding-school-internationals/hero.webp"
+      type="image/webp"
+    />
+    <source
+      srcset="/images/boarding-school-internationals/hero.avif"
+      type="image/avif"
+    />
+    <img
+      class="absolute inset-0 mx-auto min-h-screen w-full object-cover object-center"
+      src="/images/boarding-school-internationals/hero.webp"
+      alt="Estudiantes internacionales conversando en un campus universitario"
+    />
+  </picture>
+
+  <div class="relative z-10 container flex justify-center text-center">
+    <div
+      class="flex flex-col items-center justify-center space-y-4 text-center"
+    >
+      <h1
+        class="animate-blurred-fade-in text-shadow-lg gap-1 text-4xl leading-none font-black text-pretty text-white md:text-6xl lg:text-balance xl:text-8xl"
+      >
+        Estudia en los mejores <span class="text-cteal-100"
+          >Boarding Schools</span
+        > en Reino Unido y Estados Unidos
+      </h1>
+
+      <p
+        class="animate-blurred-fade-in animate-delay-100 text-shadow-lg text-baseh max-w-prose font-medium text-white md:text-xl xl:text-2xl"
+      >
+        Accede a una educación premium en el extranjero, con programas
+        académicos diseñados para estudiantes que buscan ingresar a
+        universidades Top en el mundo
+      </p>
+
+      <a
+        href="https://api.whatsapp.com/send?phone=573183795288&text=%C2%A1Hola!%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20%F0%9F%98%84"
+        rel="noopener noreferrer"
+        target="_blank"
+        class="bg-cpurple-200 hover:bg-cpurple-300 animate-blurred-fade-in animate-delay-150 mx-auto mt-5 mb-10 inline-block w-fit px-8 py-3 text-sm font-semibold text-white transition min-sm:text-base"
+      >
+        Hablemos ahora
+      </a>
+    </div>
+  </div>
+
+  <a
+    role="button"
+    href="#universidades"
+    class="animate-bouncing animate-iteration-count-infinite absolute inset-x-0 bottom-0 z-10 mx-auto hidden w-fit px-4 py-2 font-semibold lg:block lg:scale-110 2xl:scale-125"
+    aria-label="Scroll down"
+  >
+    <Icon name="mouse" class="size-6 text-white lg:size-10" />
+  </a>
+</section>

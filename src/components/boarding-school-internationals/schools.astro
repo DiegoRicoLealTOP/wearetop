@@ -1,0 +1,180 @@
+---
+import WorthgateLogo from "@/icons/logos/worthgate.svg";
+import CatsCambridgeLogo from "@/icons/logos/cats-cambridge.svg";
+import { Image } from "astro:assets";
+
+const SCHOOLS = [
+  {
+    id: "bosworth",
+    name: "Bosworth Independent School",
+    cover: "/images/boarding-school-internationals/schools/bosworth.webp",
+    website:
+      "https://bosworthschool.co.uk/?utm_source=wearetop&utm_medium=referral",
+    external: true,
+    description:
+      "Estudia en Northampton, el corazón de Inglaterra.\n\nA solo una hora de Londres, Oxford o Birmingham.\n\nBosworth Independent School es un boarding school internacional con un 70 % de estudiantes extranjeros y 30 % locales, que ofrece un entorno académico de excelencia.",
+    programs:
+      "Pre-GCSE, GCSE, A-Level y University Foundation Programme (grados 7.º a 13.º).",
+  },
+  {
+    id: "worthgate",
+    name: "The Worthgate School",
+    cover: "/images/boarding-school-internationals/schools/worthgate.webp",
+    website:
+      "https://worthgateschool.com/?utm_source=wearetop&utm_medium=referral",
+    external: true,
+    description:
+      "Estudia en Canterbury, una ciudad universitaria con historia y proyección global.\n\nThe Worthgate School reúne estudiantes de más de 50 países en un entorno multicultural y académico de alto nivel.",
+    programs:
+      "Pre-GCSE, GCSE, A-Level, International Baccalaureate (IB) y Foundation (grados 9.º a 13.º).",
+  },
+  {
+    id: "cats-cambridge",
+    name: "CATS Cambridge",
+    cover: "/images/boarding-school-internationals/schools/cats-cambridge.webp",
+    website:
+      "https://www.catscambridge.com/?utm_source=wearetop&utm_medium=referral",
+    external: true,
+    description:
+      "Vive en Cambridge, centro de la innovación y la excelencia británica.\n\nA solo 15 minutos del centro histórico, CATS Cambridge ofrece un campus moderno, diverso y enfocado en el desarrollo académico internacional.",
+    programs:
+      "GCSE, A-Level y University Foundation Programme (grados 10.º a 13.º).",
+  },
+  {
+    id: "cats-boston",
+    name: "CATS Boston",
+    cover: "/images/boarding-school-internationals/schools/cats-boston.webp",
+    website:
+      "https://www.catsacademyboston.com/?utm_source=wearetop&utm_medium=referral",
+    external: true,
+    description:
+      "Estudia en Boston, una de las ciudades universitarias más prestigiosas del mundo.\n\nA solo 20 minutos del centro, CATS Boston combina excelencia académica y acceso a universidades de renombre como Harvard, MIT y Boston University.",
+    programs:
+      "8.º a 12.º grado (High School Diploma y preparación universitaria).",
+  },
+];
+---
+
+<section class="container py-12 md:py-24" id="universidades">
+  <header class="show-animation relative z-1 text-center">
+    <h2 class="text-heading-2 font-black text-pretty">
+      👇 Descubre algunas de las <span class="text-cteal-100">escuelas</span>
+      <span class="text-cpurple-200">TOP</span> con las que trabajamos.
+    </h2>
+    <span
+      class="text-cteal-100/10 pointer-events-none absolute inset-x-0 -bottom-11 text-[50px] leading-none font-black uppercase sm:text-[60px] lg:-bottom-30 lg:text-[200px]"
+      >schools</span
+    >
+  </header>
+
+  <div
+    class="container mx-auto mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3"
+  >
+    {
+      SCHOOLS.map((s, index) => (
+        <a
+          href={s.website}
+          class="group insurance-card z-10 block overflow-hidden rounded-t-2xl border border-white/5 bg-gradient-to-br from-white/5 to-white/5 backdrop-blur-2xl transition-all duration-500"
+          data-index={index}
+          {...(s.external
+            ? { target: "_blank", rel: "noopener noreferrer" }
+            : {})}
+          rel="noopener noreferrer"
+        >
+          <header class="relative h-52 overflow-hidden rounded-2xl md:h-60 lg:h-80">
+            {s.id === "bosworth" && (
+              <Image
+                src="/images/logos/bosworth.png"
+                alt="Bosworth Independent School Logo"
+                height={10}
+                width={200}
+                class="absolute top-2 left-2 z-10 h-8 w-auto sm:top-6 sm:left-6 sm:h-10"
+              />
+            )}
+
+            {s.id === "worthgate" && (
+              <WorthgateLogo
+                height={40}
+                class="absolute top-2 left-2 z-10 h-8 text-white sm:top-6 sm:left-6 sm:h-10"
+              />
+            )}
+
+            {s.id === "cats-cambridge" && (
+              <CatsCambridgeLogo
+                height={40}
+                class="absolute top-2 left-2 z-10 h-8 text-black sm:top-6 sm:left-6 sm:h-10"
+              />
+            )}
+
+            {s.id === "cats-boston" && (
+              <Image
+                src="/images/logos/cats-boston.png"
+                alt="CATS Boston Logo"
+                height={40}
+                width={40}
+                class="absolute top-2 left-2 z-10 h-8 w-auto brightness-100 grayscale-100 invert-100 sm:top-6 sm:left-6 sm:h-10"
+              />
+            )}
+
+            <picture>
+              <source srcset={s.cover} type="image/webp" />
+              <source
+                srcset={s.cover.replace(".webp", ".avif")}
+                type="image/avif"
+              />
+
+              <Image
+                src={s.cover}
+                alt={`Logo of ${s.name}`}
+                class="h-full w-full scale-105 object-cover transition-all duration-500 group-hover:scale-100"
+                loading="lazy"
+                width={400}
+                height={300}
+              />
+            </picture>
+
+            {/* Bright effect on hover*/}
+            <div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+
+            {/* Button simulated*/}
+            <div class="absolute bottom-2 left-2 z-10 flex w-fit items-center gap-2 rounded-full border border-black/10 bg-black/40 px-4 py-2 backdrop-blur-sm transition-all duration-300 group-hover:border-white/25 group-hover:bg-black/90 md:bottom-6 md:left-6 lg:right-6 lg:left-auto">
+              <span class="text-sm font-medium text-white">
+                Descubre{" "}
+                <span class="capitalize">{s.id.replace("-", " ")}</span>
+              </span>
+              <svg
+                class="h-4 w-4 text-white transition-transform duration-300 group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </div>
+          </header>
+
+          <footer class="pt-2 md:pt-4">
+            <h3 class="text-cblack-300 mb-3 text-xl font-semibold sm:text-xl">
+              {s.name}
+            </h3>
+
+            {/* Description*/}
+            <p
+              class="text-cblack-100 text-sm whitespace-pre-line lg:text-base"
+              set:html={s.description || ""}
+            />
+
+            <p class="text-cpurple-200 mt-4 text-sm font-medium lg:text-base">
+              <b>Programas</b>: {s.programs}
+            </p>
+          </footer>
+        </a>
+      ))
+    }
+  </div>
+</section>

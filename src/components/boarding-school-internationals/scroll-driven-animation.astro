@@ -1,0 +1,83 @@
+<div class="min-h-[300vh] bg-black text-white">
+  <div class="relative">
+    <section
+      id="sticky-section"
+      class="sticky top-0 z-10 container flex h-screen flex-col items-center justify-center"
+    >
+      <h2
+        class:list={[
+          "mx-auto text-center font-black text-pretty opacity-15",
+          "text-3xl md:text-6xl xl:text-8xl",
+        ]}
+        id="headline"
+      >
+        Semestre o año académico en el extranjero · High School Diploma ·
+        University progression success
+      </h2>
+      <p
+        id="description"
+        class="text-heading-2 text-cpurple-300 mx-auto mt-10 px-2 text-center leading-tight font-normal opacity-25 sm:px-0 md:container"
+      >
+        Vive la experiencia de una educación británica y americana en los
+        mejores boarding schools de Reino Unido y Estados Unidos.
+      </p>
+    </section>
+
+    <div id="animation-trigger" class="h-screen"></div>
+  </div>
+</div>
+
+<script>
+  import { gsap } from "gsap";
+  // Cargamos ScrollTrigger dinámicamente para evitar bloquear el renderizado
+  (async () => {
+    try {
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+      gsap.registerPlugin(ScrollTrigger);
+      // Creamos un ScrollTrigger para "atascar" la sección mientras se hace scroll
+      ScrollTrigger.create({
+        trigger: "#animation-trigger", // El trigger es la altura del siguiente div
+        start: "top bottom", // Comienza cuando la parte superior del trigger toca la parte inferior de la ventana
+        end: "bottom top", // Termina cuando la parte inferior del trigger toca la parte superior de la ventana
+        pin: "#sticky-section", // Mantenemos fija esta sección
+        pinSpacing: false, // Evita que GSAP añada espacio adicional
+      });
+      // Ahora creamos un timeline para las animaciones dentro de la sección fija
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#animation-trigger",
+          start: "top bottom", // Comienza en el mismo punto que el pin
+          end: "bottom top", // Termina en el mismo punto que el pin
+          scrub: 0.5, // Hace que la animación sea suave al hacer scroll
+        },
+      });
+      // Animación secuencial de cada palabra
+      const word = document.querySelector("h2");
+      tl.to(
+        word,
+        {
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+        },
+        0.3,
+      );
+      // Animación del párrafo y el icono
+      tl.to(
+        "#description",
+        {
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+        },
+        ">",
+      );
+    } catch (error) {
+      // Si la importación o la animación fallan, degradamos la experiencia de forma elegante
+      console.error(
+        "No se pudo cargar ScrollTrigger para la animación de scroll:",
+        error,
+      );
+    }
+  })();
+</script>
