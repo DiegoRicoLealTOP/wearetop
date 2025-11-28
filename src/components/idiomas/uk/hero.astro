@@ -1,0 +1,61 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<main
+  class="dotted-overlay relative flex min-h-screen flex-col justify-center overflow-hidden bg-black after:absolute after:inset-0 after:bg-black/30"
+>
+  <picture>
+    <source srcset="/images/idiomas/uk/hero.webp" type="image/webp" />
+    <source srcset="/images/idiomas/uk/hero.avif" type="image/avif" />
+    <img
+      class="absolute inset-0 mx-auto h-screen w-full object-cover object-top"
+      src="/images/idiomas/uk/hero.webp"
+      alt="Estudia inglés en el Reino Unido con We Are TOP"
+      loading="eager"
+    />
+  </picture>
+
+  <article class="relative z-10 container flex justify-center text-center">
+    <header
+      class="flex flex-col items-center justify-center space-y-4 text-center"
+    >
+      <h1
+        class="animate-blurred-fade-in text-heading-1 max-w-4xl gap-1 leading-none font-black text-white"
+      >
+        Estudia inglés en el Reino Unido y lleva tu aprendizaje al <b
+          class="text-cteal-100 brightness-200">siguiente nivel.</b
+        >
+      </h1>
+      <p
+        class="animate-blurred-fade-in animate-delay-100 max-w-4xl text-xs text-white min-sm:block sm:text-sm md:text-base min-lg:text-2xl"
+      >
+        Con <i>We Are TOP</i>, accede a <strong>escuelas de idiomas TOP</strong>
+        con programas de <strong>Business English</strong>, preparación para
+        <strong>IELTS, TOEFL y Cambridge</strong>, y cursos especializados como
+        <strong
+          >English Plus: Marketing, Project Management, Law, Fashion o Art &
+          Design</strong
+        >.
+      </p>
+
+      <a
+        href="https://api.whatsapp.com/send?phone=573183795288&text=%C2%A1Hola!%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20%F0%9F%98%84"
+        rel="noopener noreferrer"
+        target="_blank"
+        class="bg-cpurple-200 hover:bg-cpurple-300 animate-blurred-fade-in animate-delay-150 mx-auto mt-5 mb-10 inline-block w-fit px-8 py-3 text-sm font-semibold text-white transition min-sm:text-base"
+      >
+        Descubre programas en Reino Unido
+      </a>
+    </header>
+  </article>
+
+  <a
+    role="button"
+    href="#cities"
+    class="animate-bouncing animate-iteration-count-infinite absolute inset-x-0 bottom-0 z-10 mx-auto hidden w-fit px-4 py-2 font-semibold lg:block lg:scale-110 2xl:scale-125"
+    aria-label="Scroll down"
+  >
+    <Icon name="mouse" class="size-6 text-white lg:size-10" />
+  </a>
+</main>
