@@ -1,0 +1,123 @@
+---
+import CurrencyToggle from "@/components/currency-toggle.svelte";
+import type { CurrencyConfig } from "@/lib/types/currency-config.type";
+
+type Plan = {
+  name: string;
+  pricing: CurrencyConfig[];
+  video: string;
+  cover: string;
+};
+
+const PLANS: Plan[] = [
+  {
+    name: "Project Management Certificate",
+    pricing: [
+      {
+        code: "usd",
+        value: 1_999,
+      },
+      {
+        code: "gbp",
+        value: 1_517,
+        symbol: "£",
+      },
+    ],
+    video: "https://www.youtube.com/watch?v=iceF6dzkG1U",
+    cover: "/images/idiomas/uk/project-managment-certificate.webp",
+  },
+  {
+    name: "Unlimited Packadge",
+    pricing: [
+      {
+        code: "usd",
+        value: 7_396,
+      },
+      {
+        code: "gbp",
+        value: 5_628,
+        symbol: "£",
+      },
+    ],
+    video: "https://www.youtube.com/watch?v=iceF6dzkG1U",
+    cover: "/images/idiomas/uk/unlimited.webp",
+  },
+  {
+    name: "Professional Certificate in Entrepreneurship",
+    pricing: [
+      {
+        code: "usd",
+        value: 3_580,
+      },
+      {
+        code: "gbp",
+        value: 2_725,
+        symbol: "£",
+      },
+    ],
+    video: "https://www.youtube.com/watch?v=iceF6dzkG1U",
+    cover: "/images/idiomas/uk/professional-certificate-entrepreneurship.webp",
+  },
+];
+---
+
+<section
+  class="relative grid place-items-center bg-gray-50 py-12 md:py-24"
+  id="plans"
+>
+  <div class="container flex flex-col gap-4 sm:gap-6 lg:gap-20">
+    <header
+      class="mx-auto w-fit max-w-screen-lg text-left *:text-sm *:sm:text-2xl"
+    >
+      <p class="text-cteal-100 text-center leading-tight tracking-wide">
+        Lo que realmente funciona:
+      </p>
+      <h2
+        class="mx-auto max-w-3xl text-center text-2xl leading-tight font-black text-black md:text-3xl lg:text-4xl xl:max-w-5xl xl:text-5xl"
+      >
+        los mejores programas para estudiar inglés y certificarte en Reino Unido
+      </h2>
+    </header>
+    <ul class="container flex flex-wrap justify-center gap-5">
+      {
+        PLANS.map((plan) => (
+          <li class="relative h-full max-h-[518px] w-full max-w-[366px] shrink-0 overflow-hidden rounded-2xl shadow-sm odd:scale-90">
+            <picture>
+              <source srcset={plan.cover} type="image/webp" />
+              <source
+                srcset={plan.cover.replace("webp", "avif")}
+                type="image/avif"
+              />
+              <img
+                src={plan.cover}
+                width="320"
+                height="100%"
+                loading="lazy"
+                class="aspect-[9/16] h-full w-full object-cover object-center"
+                alt={plan.name}
+              />
+            </picture>
+            <header class="origin-start absolute inset-x-0 top-[38%] mx-auto flex w-fit -translate-y-1/2 flex-col gap-4">
+              <CurrencyToggle client:load currencies={plan.pricing} />
+            </header>
+            <a
+              href={plan.video}
+              target="_blank"
+              class="absolute right-4 bottom-5 left-4 flex min-h-20 items-center justify-center rounded-2xl bg-black/10 px-4 py-4 text-center text-2xl leading-6 font-medium text-balance text-white drop-shadow-md backdrop-blur-sm"
+            >
+              {plan.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <a
+      href="https://api.whatsapp.com/send?phone=573183795288&text=%C2%A1Hola!%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20%F0%9F%98%84"
+      rel="noopener noreferrer"
+      target="_blank"
+      class="animate-blurred-fade-in animate-delay-150 bg-cpurple-200 hover:bg-cpurple-300 mx-auto inline-block w-fit px-8 py-3 text-sm font-semibold text-white transition min-sm:text-base"
+    >
+      Hablemos!
+    </a>
+  </div>
+</section>

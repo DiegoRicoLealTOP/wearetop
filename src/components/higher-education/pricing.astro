@@ -1,30 +1,57 @@
 ---
-import NumberFlow from "@/components/higher-education/show-pricing.svelte";
-const PLANS = [
+import type { CurrencyConfig } from "@/lib/types/currency-config.type";
+import CurrencyToggle from "@/components/currency-toggle.svelte";
+
+type Plan = {
+  name: string;
+  pricing: CurrencyConfig[];
+  video: string;
+  cover: string;
+};
+
+const PLANS: Plan[] = [
   {
     name: "MBA",
-    pricing: {
-      usd: 37000,
-      aud: 56160,
-    },
+    pricing: [
+      {
+        code: "usd",
+        value: 37_000,
+      },
+      {
+        code: "aud",
+        value: 56_160,
+      },
+    ],
     video: "https://www.youtube.com/watch?v=lUVxlJwVkp0",
     cover: "/images/card-1.webp",
   },
   {
     name: "Master of Information Technology",
-    pricing: {
-      usd: 35500,
-      aud: 53760,
-    },
+    pricing: [
+      {
+        code: "usd",
+        value: 35_500,
+      },
+      {
+        code: "aud",
+        value: 53_760,
+      },
+    ],
     video: "https://www.youtube.com/watch?v=SjG64_mH0XU",
     cover: "/images/card-2.webp",
   },
   {
     name: "Master of Management (Tourism and Hospitality)",
-    pricing: {
-      usd: 33800,
-      aud: 51240,
-    },
+    pricing: [
+      {
+        code: "usd",
+        value: 33_800,
+      },
+      {
+        code: "aud",
+        value: 51_240,
+      },
+    ],
     video: "https://www.youtube.com/watch?v=9C6Oz_Fwe48",
     cover: "/images/card-3.webp",
   },
@@ -62,11 +89,7 @@ const PLANS = [
               class="aspect-[9/16] h-full w-full object-cover"
             />
             <header class="origin-start absolute inset-x-0 top-[38%] mx-auto flex w-fit -translate-y-1/2 flex-col gap-4">
-              <NumberFlow
-                client:visible
-                usd={plan.pricing.usd}
-                aud={plan.pricing.aud}
-              />
+              <CurrencyToggle client:visible currencies={plan.pricing} />
             </header>
             <a
               href={plan.video}
