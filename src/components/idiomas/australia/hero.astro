@@ -1,0 +1,58 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<main
+  class="dotted-overlay relative flex min-h-screen flex-col justify-center overflow-hidden bg-black after:absolute after:inset-0 after:bg-black/40"
+>
+  <picture>
+    <source srcset="/images/idiomas/australia/hero.webp" type="image/webp" />
+    <source srcset="/images/idiomas/australia/hero.avif" type="image/avif" />
+    <img
+      class="absolute inset-0 mx-auto h-screen w-full object-cover object-top"
+      src="/images/idiomas/australia/hero.webp"
+      alt="Estudia inglés en Australia con We Are TOP"
+      loading="eager"
+    />
+  </picture>
+
+  <article class="relative z-10 container flex justify-center text-center">
+    <header
+      class="flex flex-col items-center justify-center space-y-4 text-center"
+    >
+      <h1
+        class="animate-blurred-fade-in text-heading-1 max-w-4xl gap-1 leading-none font-black text-white 2xl:max-w-7xl"
+      >
+        Inglés en Australia: la experiencia que solo
+        <b class="text-cteal-100 brightness-200">un destino TOP</b> puede ofrecer.
+      </h1>
+      <p
+        class="animate-blurred-fade-in animate-delay-100 max-w-4xl text-xs text-white min-sm:block sm:text-sm md:text-base min-lg:text-2xl"
+      >
+        Estudia inglés en Australia con <b>We Are TOP</b> y accede a <strong
+          >escuelas premium</strong
+        >, <strong>certificaciones</strong> que pesan en tu CV, <strong
+          >business English</strong
+        >, rutas universitarias y programas diseñados para llevarte al <strong
+          >siguiente nivel académico y profesional</strong
+        >.
+      </p>
+
+      <a
+        href="#plans"
+        class="bg-cpurple-200 hover:bg-cpurple-300 animate-blurred-fade-in animate-delay-150 mx-auto mt-5 mb-10 inline-block w-fit px-8 py-3 text-sm font-semibold text-white transition min-sm:text-base"
+      >
+        Descubre programas en Australia
+      </a>
+    </header>
+  </article>
+
+  <a
+    role="button"
+    href="#cities"
+    class="animate-bouncing animate-iteration-count-infinite absolute inset-x-0 bottom-0 z-10 mx-auto hidden w-fit px-4 py-2 font-semibold lg:block lg:scale-110 2xl:scale-125"
+    aria-label="Scroll down"
+  >
+    <Icon name="mouse" class="size-6 text-white lg:size-10" />
+  </a>
+</main>

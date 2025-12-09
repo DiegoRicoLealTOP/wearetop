@@ -1,0 +1,30 @@
+---
+const CITIES = ["St. Julian´s", "Gozo", "Sliema"];
+---
+
+<article class="container py-12 md:py-24" id="cities">
+  <header class="show-animation relative z-1 text-center">
+    <h2
+      class="mx-auto max-w-3xl text-2xl font-black md:text-3xl lg:text-4xl xl:max-w-5xl xl:text-5xl"
+    >
+      Ahora que estás listo, estás son las ciudades donde podrás <strong
+        class="text-cpurple-200">estudiar en Malta</strong
+      >:
+    </h2>
+  </header>
+
+  <ul
+    class="relative z-2 mx-auto mt-10 flex w-full flex-wrap justify-evenly gap-3 bg-white sm:gap-6"
+  >
+    {
+      CITIES.map((c) => (
+        <li class="flex items-center gap-2">
+          <span class="text-cpurple-200">&check;</span>
+          <h3 class="flex items-center gap-x-2 text-lg font-medium sm:text-2xl">
+            {c}
+          </h3>
+        </li>
+      ))
+    }
+  </ul>
+</article>
