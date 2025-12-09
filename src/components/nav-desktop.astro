@@ -1,7 +1,15 @@
 ---
 import { Icon } from "astro-icon/components";
-import { ROUTES } from "@/lib/constants";
+import { getNavRoute, ROUTES } from "@/lib/constants";
 import { formatText, hasSubMenus, formatRouteIcon } from "@/utils/nav";
+
+// Helper to resolve nested routes
+function resolveNestedRoute(value: any, ...parentKeys: string[]): string {
+  if (typeof value === "string") {
+    return getNavRoute(value, ...parentKeys);
+  }
+  return "#";
+}
 ---
 
 <nav class="relative hidden flex-wrap text-[10px] lg:flex">
@@ -32,7 +40,12 @@ import { formatText, hasSubMenus, formatRouteIcon } from "@/utils/nav";
                     {Object.entries(subValue).map(
                       ([subSubKey, subSubValue]) => (
                         <a
-                          href={(ROUTES.WEARETOP + subSubValue) as string}
+                          href={resolveNestedRoute(
+                            subSubValue,
+                            key,
+                            subKey,
+                            subSubKey,
+                          )}
                           class="block border-t border-white/30 px-4 py-2 font-semibold text-white/60 transition-colors hover:text-white"
                         >
                           {formatText(subSubKey)}
@@ -44,7 +57,7 @@ import { formatText, hasSubMenus, formatRouteIcon } from "@/utils/nav";
               ) : (
                 // Without submenus
                 <a
-                  href={(ROUTES.WEARETOP + subValue) as string}
+                  href={resolveNestedRoute(subValue, key, subKey)}
                   class="hover:text-cteal-100 block px-4 py-2 font-semibold"
                 >
                   {formatText(subKey)}
@@ -56,13 +69,7 @@ import { formatText, hasSubMenus, formatRouteIcon } from "@/utils/nav";
       ) : (
         // Normal items
         <a
-          href={
-            value === "/#programas"
-              ? value
-              : value === "/seguros-de-viaje"
-                ? value
-                : ((ROUTES.WEARETOP + value) as string)
-          }
+          href={getNavRoute(value as string, key)}
           class="after-star last-of-type:bg-cpurple-300 hover:bg-cpurple-200 flex items-center px-4 py-10 transition-colors last-of-type:relative [&:first-of-type>svg]:skew-x-[-18deg]"
         >
           <Icon name={`navbar/${formatRouteIcon(key)}`} class="mr-2 size-2" />
