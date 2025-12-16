@@ -23,7 +23,6 @@ export const ROUTES = {
       PARA_APRENDER_ITALIANO: "/para-aprender-italiano",
     },
     SEGUROS_DE_VIAJE: "/seguros-de-viaje",
-    OFERTAS: "/ofertas",
   },
   SOCIALS: {
     INSTAGRAM: "https://www.instagram.com/wearetop.co/",
@@ -61,7 +60,6 @@ export const MIGRATED_ROUTES = {
       PARA_APRENDER_ITALIANO: false,
     },
     SEGUROS_DE_VIAJE: true,
-    OFERTAS: false,
   },
 } as const;
 

@@ -86,7 +86,7 @@ function resolveNestedRoute(value: any, ...parentKeys: string[]): string {
           // Normal items
           <a
             href={getNavRoute(value as string, key)}
-            class="after-star last-of-type:bg-cpurple-400 hover:bg-cpurple-200 flex items-center px-4 py-4 transition-colors last-of-type:relative [&:first-of-type>svg]:skew-x-[-18deg]"
+            class="after-star hover:bg-cpurple-200 flex items-center px-4 py-4 transition-colors [&:first-of-type>svg]:skew-x-[-18deg]"
             aria-label={formatText(key)}
           >
             <Icon name={`navbar/${formatRouteIcon(key)}`} class="mr-2 size-2" />
