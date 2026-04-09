@@ -1,0 +1,37 @@
+---
+const CITIES = ["Toronto", "Vancouver", "Montreal", "Quebec", "Calgary"];
+---
+
+<article class="container py-12 md:py-24" id="cities">
+  <header class="show-animation relative z-1 text-center">
+    <h2
+      class="mx-auto max-w-3xl text-2xl font-black md:text-3xl lg:text-4xl xl:max-w-5xl xl:text-5xl"
+    >
+      Ciudades <strong class="text-cpurple-200">TOP</strong> para estudiar idiomas
+      en
+      <strong class="text-cpurple-200">Canadá</strong>:
+    </h2>
+  </header>
+
+  <p class="my-6 text-center">
+    Canadá ofrece ciudades que combinan excelencia académica, calidad de vida y
+    entornos multiculturales, ideales para <strong
+      >aprender inglés o francés</strong
+    >.
+  </p>
+
+  <ul
+    class="relative z-2 mx-auto mt-10 flex w-full flex-wrap justify-evenly gap-3 bg-white sm:gap-6"
+  >
+    {
+      CITIES.map((c) => (
+        <li class="flex items-center gap-2">
+          <span class="text-cpurple-200">&check;</span>
+          <h3 class="flex items-center gap-x-2 text-lg font-medium sm:text-2xl">
+            {c}
+          </h3>
+        </li>
+      ))
+    }
+  </ul>
+</article>
