@@ -19,13 +19,13 @@ const {
   ogTitle,
   ogDescription,
   ogImage = "/images/og.jpg",
-  ogImageAlt =
-    "Estudiantes internacionales viviendo una experiencia academica global con We Are TOP",
+  ogImageAlt = "Estudiantes internacionales viviendo una experiencia academica global con We Are TOP",
   twitterSite,
 } = Astro.props;
 
 const siteUrl = "https://www.wearetop.co";
-const canonical = canonicalUrl ?? new URL(Astro.url.pathname, siteUrl).toString();
+const canonical =
+  canonicalUrl ?? new URL(Astro.url.pathname, siteUrl).toString();
 const socialImageUrl = new URL(ogImage, siteUrl).toString();
 const pageKeywords = Array.isArray(keywords) ? keywords.join(", ") : keywords;
 const socialTitle = ogTitle ?? title;
@@ -74,4 +74,8 @@ const structuredData = {
 <meta name="twitter:image:alt" content={ogImageAlt} />
 {twitterSite && <meta name="twitter:site" content={twitterSite} />}
 
-<script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(structuredData)}
+/>
