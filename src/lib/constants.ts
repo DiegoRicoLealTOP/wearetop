@@ -17,7 +17,7 @@ export const ROUTES = {
       },
       PARA_APRENDER_FRANCES: {
         FRANCIA: "/francia",
-        CANADA: "/canada",
+        CANADA: "/idiomas/canada",
       },
       PARA_APRENDER_ALEMAN: "/idiomas/alemania",
       PARA_APRENDER_ITALIANO: "/para-aprender-italiano",
@@ -54,7 +54,7 @@ export const MIGRATED_ROUTES = {
       },
       PARA_APRENDER_FRANCES: {
         FRANCIA: false,
-        CANADA: false,
+        CANADA: true,
       },
       PARA_APRENDER_ALEMAN: true,
       PARA_APRENDER_ITALIANO: false,
