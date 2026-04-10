@@ -1,0 +1,40 @@
+---
+import WorldWideSchoolLogo from "@/icons/logos/world-wide.svg";
+---
+
+<section
+  class="bg-cgray-100 flex flex-col justify-center gap-6 p-4 py-12 md:py-24"
+>
+  <ul
+    class:list={[
+      "item-center flex list-none flex-wrap justify-center gap-x-8 gap-y-3 p-0 md:gap-x-12 md:gap-y-4",
+    ]}
+  >
+    <li>
+      <img
+        src="/images/logos/nzlc.png"
+        alt="NZLC Logo"
+        width={80}
+        height={30}
+        class="h-7 w-auto"
+      />
+    </li>
+    <li>
+      <WorldWideSchoolLogo
+        aria-label="WorldWideSchool Logo"
+        width={80}
+        height={30}
+        class="h-7 w-auto text-black"
+      />
+    </li>
+    <li>
+      <img
+        src="/images/logos/sit.png"
+        alt="SIT Logo"
+        width={80}
+        height={30}
+        class="h-7 w-auto invert"
+      />
+    </li>
+  </ul>
+</section>

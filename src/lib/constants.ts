@@ -12,7 +12,7 @@ export const ROUTES = {
         IRLANDA: "/irlanda",
         AUSTRALIA: "/idiomas/australia",
         MALTA: "/idiomas/malta",
-        NEW_ZEALAND: "/newzealand",
+        NEW_ZEALAND: "/idiomas/nueva-zelanda",
         CANADA: "/idiomas/canada",
       },
       PARA_APRENDER_FRANCES: {
@@ -49,7 +49,7 @@ export const MIGRATED_ROUTES = {
         IRLANDA: false,
         AUSTRALIA: true,
         MALTA: true,
-        NEW_ZEALAND: false,
+        NEW_ZEALAND: true,
         CANADA: true,
       },
       PARA_APRENDER_FRANCES: {
