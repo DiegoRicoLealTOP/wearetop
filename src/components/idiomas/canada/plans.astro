@@ -94,9 +94,11 @@ const PLANS: Plan[] = [
             <header class="origin-start absolute inset-x-0 top-[38%] mx-auto flex w-fit -translate-y-1/2 flex-col gap-4">
               <CurrencyToggle client:load currencies={plan.pricing} />
             </header>
-            <p class="absolute right-4 bottom-5 left-4 flex min-h-20 items-center justify-center rounded-2xl bg-black/10 px-4 py-4 text-center text-2xl leading-6 font-medium text-balance text-white drop-shadow-md backdrop-blur-sm">
+            <h3 class="absolute right-4 bottom-5 left-4 flex min-h-20 flex-col items-center justify-center rounded-2xl bg-black/10 px-4 py-4 text-center text-2xl leading-6 font-medium text-balance text-white drop-shadow-md backdrop-blur-sm">
               {plan.name}
-            </p>
+              <br />
+              <span class="text-lg">ILSC Toronto</span>
+            </h3>
           </li>
         ))
       }
