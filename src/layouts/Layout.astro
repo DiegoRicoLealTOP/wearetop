@@ -15,13 +15,25 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description?: string;
-  ogUrl?: string;
+  keywords?: string | string[];
+  canonicalUrl?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  ogImageAlt?: string;
+  twitterSite?: string;
 }
 
 const {
   title,
-  description = "No somos una agencia. Ofrecemos consultoría en educación internacional. Cada año, nuestros estudiantes viven la mejor experiencia de sus vidas, en escuelas de idiomas con el mejor mix de nacionalidades, Summer Camps, Universidades TOP 100 QS, Russell group, escuelas de negocios y colegios alrededor del mundo.",
-  ogUrl = "/images/og.png",
+  description = "Estudia en el exterior con asesoria experta. Idiomas, universidades, boarding schools y destinos globales con acompanamiento personalizado.",
+  keywords,
+  canonicalUrl,
+  ogTitle,
+  ogDescription,
+  ogImage = "/images/og.jpg",
+  ogImageAlt,
+  twitterSite,
 } = Astro.props;
 ---
 
@@ -29,9 +41,19 @@ const {
 <html lang="es" class="overflow-x-hidden scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    <Head title={title} description={description} ogUrl={ogUrl} />
+    <Head
+      title={title}
+      description={description}
+      keywords={keywords}
+      canonicalUrl={canonicalUrl}
+      ogTitle={ogTitle}
+      ogDescription={ogDescription}
+      ogImage={ogImage}
+      ogImageAlt={ogImageAlt}
+      twitterSite={twitterSite}
+    />
   </head>
   <body class="overflow-x-hidden">
     <BodyMetaTags />
