@@ -1,8 +1,5 @@
-const BACKUP_URL = "https://content.wearetop.co";
-
 // Routes configuration
 export const ROUTES = {
-  WEARETOP: BACKUP_URL,
   NAV_LINKS: {
     PROGRAMAS: "/#programas",
     DESTINOS: {
@@ -31,9 +28,8 @@ export const ROUTES = {
     YOUTUBE: "https://www.youtube.com/@wearetopco",
   },
   FOOTER: {
-    TERMINOS_Y_CONDICIONES: "https://content.wearetop.co/terminosycondiciones",
-    POLITICA_DE_PRIVACIDAD:
-      "https://content.wearetop.co/politica-de-proteccion-de-datos",
+    TERMINOS_Y_CONDICIONES: "#",
+    POLITICA_DE_PRIVACIDAD: "#",
   },
 } as const;
 
@@ -84,8 +80,11 @@ export function resolveRoute(
   }
 
   // If migrated, use relative path for Astro
-  // If not migrated, prepend backup URL
-  return isMigrated ? path : `${BACKUP_URL}${path}`;
+  // If not migrated, prepend to whatsapp link as backup
+  return isMigrated
+    ? path
+    : "https://wa.me/573183795288?text=Hola%20Top%2C%20quiero%20saber%20m%C3%A1s%20sobre%20este%20programa%3A%20" +
+        encodeURIComponent(path);
 }
 
 /**
