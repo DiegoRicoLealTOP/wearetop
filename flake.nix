@@ -11,7 +11,7 @@
   in {
     devShells.${system}.default = pkgs.mkShell {
       packages = with pkgs; [
-        nodejs_25
+        nodejs_24
         nodePackages.pnpm
         git
         curl
