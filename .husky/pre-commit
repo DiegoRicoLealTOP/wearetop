@@ -1,2 +1,2 @@
-pnpx prettier . --write
+pnpm exec prettier . --write
 pnpm run astro check
