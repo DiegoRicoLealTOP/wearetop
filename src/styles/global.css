@@ -73,3 +73,8 @@
     scale: 100%;
   }
 }
+
+@utility flex-wrap-balance {
+  flex-wrap: wrap;
+  flex-wrap: balance;
+}
